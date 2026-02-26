@@ -19,6 +19,8 @@ unlink_path() {
 
 echo "=== Claude Code ==="
 unlink_path "$HOME/.claude/skills"
+unlink_path "$HOME/.claude/output-styles"
+unlink_path "$HOME/.claude/settings.json"
 unlink_path "$HOME/.claude/CLAUDE.md"
 
 echo ""

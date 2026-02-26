@@ -25,6 +25,8 @@ link "$SCRIPT_DIR/skills" "$HOME/.agents/skills"
 echo ""
 echo "=== Claude Code ==="
 link "$SCRIPT_DIR/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
+link "$SCRIPT_DIR/claude/settings.json" "$HOME/.claude/settings.json"
+link "$SCRIPT_DIR/claude/output-styles" "$HOME/.claude/output-styles"
 link "$SCRIPT_DIR/skills" "$HOME/.claude/skills"
 
 echo ""

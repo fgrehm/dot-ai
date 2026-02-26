@@ -7,7 +7,9 @@ Configuration files for AI coding tools, managed with symlinks.
 ```
 dot-ai/
 ├── claude/
-│   └── CLAUDE.md          # Global instructions for Claude Code
+│   ├── CLAUDE.md          # Global instructions for Claude Code
+│   ├── settings.json      # Permissions, model, telemetry, etc.
+│   └── output-styles/     # Custom output styles (Navigator v1/v2)
 ├── pi/
 │   └── AGENTS.md          # Global instructions for pi
 ├── skills/                # Shared skills (symlinked to ~/.agents/skills/)
@@ -54,6 +56,8 @@ No frameworks, no dependencies, just symlinks.
 ```
 ~/.agents/skills/        -> skills/              # Shared skills (standard location)
 ~/.claude/CLAUDE.md      -> claude/CLAUDE.md     # Global instructions for Claude Code
+~/.claude/settings.json  -> claude/settings.json # Permissions, model, telemetry
+~/.claude/output-styles/ -> claude/output-styles/ # Custom output styles
 ~/.claude/skills/        -> skills/              # Claude Code skill discovery
 ~/.pi/agent/AGENTS.md   -> pi/AGENTS.md          # Global instructions for pi
 ~/.pi/agent/skills/      -> skills/              # pi skill discovery

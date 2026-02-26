@@ -19,7 +19,7 @@
 
 ## Phase 4: Shared config
 
-1. Identify shared instructions between Claude and pi (both read `AGENTS.md`/`CLAUDE.md`)
+1. Identify shared instructions between Claude and pi (both read `AGENTS.md`)
 2. Factor out common instructions if duplication becomes a problem
 
 ## Ideas

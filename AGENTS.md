@@ -4,7 +4,7 @@ Dotfiles repo for AI coding tool configurations. Symlink-based, no dependencies.
 
 ## Structure
 
-- `claude/` - Claude Code global config (`CLAUDE.md`)
+- `claude/` - Claude Code global config (`CLAUDE.md`, `settings.json`, `output-styles/`)
 - `pi/` - pi global config (`AGENTS.md`)
 - `skills/` - Shared skills for all coding agents (symlinked to `~/.agents/skills/`)
 - `web/` - Web chat interface configs (Claude.ai, ChatGPT) — manual copy-paste, not symlinked
@@ -12,7 +12,7 @@ Dotfiles repo for AI coding tool configurations. Symlink-based, no dependencies.
 
 ## How syncing works
 
-`install.sh` symlinks files from this repo into `~/.claude/` (and eventually `~/.pi/agent/`). It backs up existing files before replacing them. `uninstall.sh` reverses the process.
+`install.sh` symlinks files from this repo into `~/.claude/` and `~/.pi/agent/`. It backs up existing files before replacing them. `uninstall.sh` reverses the process.
 
 ## Conventions
 

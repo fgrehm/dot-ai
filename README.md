@@ -6,6 +6,7 @@ Configuration files for AI coding tools, managed with symlinks.
 
 ```
 dot-ai/
+├── AGENTS.md              # Project instructions (CLAUDE.md symlinks here)
 ├── claude/
 │   ├── CLAUDE.md          # Global instructions for Claude Code
 │   ├── settings.json      # Permissions, model, telemetry, etc.
@@ -16,8 +17,9 @@ dot-ai/
 ├── web/
 │   ├── claude-ai/
 │   │   ├── personal-instructions.md
-│   │   └── projects/      # Claude.ai project configs (description + instructions)
-│   └── chatgpt/           # ChatGPT custom instructions
+│   │   └── projects/      # Claude.ai project configs (per-project instructions)
+│   └── chatgpt/
+│       └── personal-instructions.md
 ├── install.sh             # Symlink everything into place
 └── uninstall.sh           # Remove symlinks
 ```

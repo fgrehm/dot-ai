@@ -62,3 +62,10 @@ No frameworks, no dependencies, just symlinks.
 ### Web chat configs (`web/`)
 
 Files under `web/` are **not** symlinked — they're reference copies you paste into each web UI's settings manually. The `<!-- Last synced -->` comment at the top of each file helps track when you last updated the live version.
+
+## Ideas
+
+- Rename `claude-project-sync` skill to something tool-agnostic (e.g. `web-project-sync`)
+- Drift detection script to diff `claude/CLAUDE.md` vs `pi/AGENTS.md`
+- `install.sh --dry-run` flag to preview symlinks without creating them
+- More web chat providers as needed (Gemini, Copilot, etc.)

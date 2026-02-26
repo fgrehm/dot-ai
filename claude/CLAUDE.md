@@ -21,9 +21,26 @@ Skip scopes for broad/obvious changes:
 - `feat: implement user dashboard`
 - `fix: resolve memory leak in background tasks`
 
-### General Preferences
+### General Commit Message Preferences
 
 - Prefer present tense: "add feature" not "added feature"
 - Keep first line under 72 characters when possible
 - Use body text for complex changes requiring explanation
 - Reference issues/PRs when relevant: `fixes #123`
+
+### AI Attribution Trailers
+
+Always add git trailers to identify AI-assisted commits:
+
+```
+feat(auth): add OAuth login support
+
+Optional body text.
+
+Coding-Agent: Claude Code
+Model: claude-sonnet-4-20250514
+```
+
+- `Coding-Agent`: the tool name (e.g. `Claude Code`, `pi`). Include version if available.
+- `Model`: the most specific model identifier available (e.g. `claude-sonnet-4-20250514`).
+- Trailers go after a blank line following the body (or subject if no body).

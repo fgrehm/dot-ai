@@ -19,6 +19,24 @@ link() {
   echo "Linked $dest -> $src"
 }
 
+# Clean up legacy chezmoi-managed symlinks (pointed to dotfiles repo config/claude/)
+cleanup_legacy() {
+  local target="$1"
+  if [ -L "$target" ]; then
+    local dest
+    dest="$(readlink "$target")"
+    if [[ "$dest" == */config/claude/* ]]; then
+      echo "Removing legacy symlink $target -> $dest"
+      rm "$target"
+    fi
+  fi
+}
+
+cleanup_legacy "$HOME/.claude/CLAUDE.md"
+cleanup_legacy "$HOME/.claude/settings.json"
+cleanup_legacy "$HOME/.claude/output-styles"
+cleanup_legacy "$HOME/.claude/skills"
+
 echo "=== Shared ==="
 link "$SCRIPT_DIR/skills" "$HOME/.agents/skills"
 

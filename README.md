@@ -25,9 +25,9 @@ dot-ai/
 | Tool | Config location | Status |
 |------|----------------|--------|
 | [Claude Code](https://claude.ai/claude-code) | `~/.claude/` | Active |
+| [pi-coding-agent](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) | `~/.pi/agent/` | Active |
 | [Claude.ai](https://claude.ai) | `web/claude-ai/` (manual copy-paste) | Active |
 | [ChatGPT](https://chatgpt.com) | `web/chatgpt/` (manual copy-paste) | Active |
-| [pi-coding-agent](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) | `~/.pi/agent/` | Active |
 
 ## Setup
 

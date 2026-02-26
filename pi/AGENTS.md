@@ -5,6 +5,7 @@
 - Never use em dashes (—). Use commas, periods, or parentheses instead.
 - Avoid marketing fluff: "comprehensive", "robust", "seamless", "cutting-edge", etc.
 - Be direct and concise.
+- These rules apply everywhere: prose, documentation, commit messages, code comments.
 
 ## Git Commit Guidelines
 
@@ -38,9 +39,10 @@ feat(auth): add OAuth login support
 Optional body text.
 
 Coding-Agent: pi
-Model: claude-sonnet-4-20250514
+Model: claude-opus-4-6
 ```
 
 - `Coding-Agent`: the tool name (e.g. `pi`, `Claude Code`). Include version if available.
-- `Model`: the most specific model identifier available (e.g. `claude-sonnet-4-20250514`).
+- `Model`: read from `defaultModel` in `~/.pi/agent/settings.json`. If the field is
+  missing or the file is unreadable, ask the user. Do not guess.
 - Trailers go after a blank line following the body (or subject if no body).

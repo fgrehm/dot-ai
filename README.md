@@ -7,14 +7,15 @@ Configuration files for AI coding tools, managed with symlinks.
 ```
 dot-ai/
 ├── claude/
-│   ├── CLAUDE.md          # Global instructions for Claude Code
-│   └── skills/            # Reusable skills (project-inception, etc.)
+│   └── CLAUDE.md          # Global instructions for Claude Code
+├── pi/
+│   └── AGENTS.md          # Global instructions for pi
+├── skills/                # Shared skills (symlinked to ~/.agents/skills/)
 ├── web/
 │   ├── claude-ai/
 │   │   ├── personal-instructions.md
 │   │   └── projects/      # Claude.ai project configs (description + instructions)
 │   └── chatgpt/           # ChatGPT custom instructions
-├── pi/                    # (future) pi-coding-agent config
 ├── install.sh             # Symlink everything into place
 └── uninstall.sh           # Remove symlinks
 ```
@@ -26,7 +27,7 @@ dot-ai/
 | [Claude Code](https://claude.ai/claude-code) | `~/.claude/` | Active |
 | [Claude.ai](https://claude.ai) | `web/claude-ai/` (manual copy-paste) | Active |
 | [ChatGPT](https://chatgpt.com) | `web/chatgpt/` (manual copy-paste) | Active |
-| [pi-coding-agent](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) | `~/.pi/agent/` | Planned |
+| [pi-coding-agent](https://github.com/badlogic/pi-mono/tree/main/packages/coding-agent) | `~/.pi/agent/` | Active |
 
 ## Setup
 
@@ -47,6 +48,16 @@ To remove all symlinks:
 `install.sh` creates symlinks from this repo to where each tool expects its config. Existing files are backed up with a `.bak` suffix before being replaced.
 
 No frameworks, no dependencies, just symlinks.
+
+### Symlink layout
+
+```
+~/.agents/skills/        -> skills/              # Shared skills (standard location)
+~/.claude/CLAUDE.md      -> claude/CLAUDE.md     # Global instructions for Claude Code
+~/.claude/skills/        -> skills/              # Claude Code skill discovery
+~/.pi/agent/AGENTS.md   -> pi/AGENTS.md          # Global instructions for pi
+~/.pi/agent/skills/      -> skills/              # pi skill discovery
+```
 
 ### Web chat configs (`web/`)
 

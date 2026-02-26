@@ -18,8 +18,17 @@ unlink_path() {
 }
 
 echo "=== Claude Code ==="
-unlink_path "$HOME/.claude/CLAUDE.md"
 unlink_path "$HOME/.claude/skills"
+unlink_path "$HOME/.claude/CLAUDE.md"
+
+echo ""
+echo "=== pi ==="
+unlink_path "$HOME/.pi/agent/skills"
+unlink_path "$HOME/.pi/agent/AGENTS.md"
+
+echo ""
+echo "=== Shared ==="
+unlink_path "$HOME/.agents/skills"
 
 echo ""
 echo "Done."

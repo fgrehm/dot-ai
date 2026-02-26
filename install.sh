@@ -19,9 +19,18 @@ link() {
   echo "Linked $dest -> $src"
 }
 
+echo "=== Shared ==="
+link "$SCRIPT_DIR/skills" "$HOME/.agents/skills"
+
+echo ""
 echo "=== Claude Code ==="
 link "$SCRIPT_DIR/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-link "$SCRIPT_DIR/claude/skills" "$HOME/.claude/skills"
+link "$SCRIPT_DIR/skills" "$HOME/.claude/skills"
+
+echo ""
+echo "=== pi ==="
+link "$SCRIPT_DIR/pi/AGENTS.md" "$HOME/.pi/agent/AGENTS.md"
+link "$SCRIPT_DIR/skills" "$HOME/.pi/agent/skills"
 
 echo ""
 echo "Done. Run ./uninstall.sh to remove symlinks."

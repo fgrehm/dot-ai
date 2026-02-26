@@ -11,16 +11,12 @@
 1. Add `web/` directory for Claude.ai and ChatGPT personal instructions
 2. Document the manual copy-paste workflow in README
 
-## Phase 3: pi-coding-agent
+## Phase 3: pi-coding-agent + shared skills ✅
 
-1. Add `pi/` directory with config files
-2. Extend install/uninstall scripts to handle `~/.pi/agent/`
-3. Document pi-specific config in README
-
-## Phase 4: Shared config
-
-1. Identify shared instructions between Claude and pi (both read `AGENTS.md`)
-2. Factor out common instructions if duplication becomes a problem
+1. Move skills to shared `~/.agents/skills/` location
+2. Share `claude/CLAUDE.md` as `~/.pi/agent/AGENTS.md`
+3. Extend install/uninstall scripts for both tools
+4. Document symlink layout in README
 
 ## Ideas
 

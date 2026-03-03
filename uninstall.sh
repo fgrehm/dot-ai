@@ -25,6 +25,7 @@ unlink_path "$HOME/.claude/CLAUDE.md"
 
 echo ""
 echo "=== pi ==="
+unlink_path "$HOME/.pi/agent/extensions"
 unlink_path "$HOME/.pi/agent/skills"
 unlink_path "$HOME/.pi/agent/AGENTS.md"
 

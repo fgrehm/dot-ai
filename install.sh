@@ -51,6 +51,7 @@ echo ""
 echo "=== pi ==="
 link "$SCRIPT_DIR/pi/AGENTS.md" "$HOME/.pi/agent/AGENTS.md"
 link "$SCRIPT_DIR/skills" "$HOME/.pi/agent/skills"
+link "$SCRIPT_DIR/pi/extensions" "$HOME/.pi/agent/extensions"
 
 echo ""
 echo "Done. Run ./uninstall.sh to remove symlinks."

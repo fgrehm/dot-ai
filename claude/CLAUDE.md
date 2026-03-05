@@ -45,3 +45,13 @@ Model: claude-sonnet-4-20250514
 - `Coding-Agent`: the tool name (e.g. `Claude Code`, `pi`). Include version if available.
 - `Model`: the most specific model identifier available (e.g. `claude-sonnet-4-20250514`).
 - Trailers go after a blank line following the body (or subject if no body).
+
+## Task Scope
+
+- Clarify the goal before starting. Do not expand scope beyond what was asked.
+- When the task is complete, say so and suggest wrapping up. Do not look for more work.
+
+## Memory and Notes
+
+- Never use Claude Code's built-in auto-memory (`~/.claude/projects/*/memory/`).
+- Persist any notes, context, or learnings to the project's `.ai/` directory instead.

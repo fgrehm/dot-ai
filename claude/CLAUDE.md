@@ -3,6 +3,7 @@
 ## Writing Style
 
 - Never use em dashes (—). Use commas, periods, or parentheses instead.
+- Use ASCII quotation marks (`"` and `'`) in code and comments, not Unicode typographic quotes (`"` U+201D, `"` U+201C, etc.). Linters like gofmt and golangci-lint will restore Unicode characters from the AST, causing staged changes to revert at commit time.
 - Avoid marketing fluff: "comprehensive", "robust", "seamless", "cutting-edge", etc.
 - Be direct and concise.
 

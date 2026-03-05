@@ -21,7 +21,9 @@
       "Read(.env)",
       "Read(.env.*)",
       "Read(~/.ssh/*)",
-      "Read(~/.aws/*)"
+      "Read(~/.aws/*)",
+      "Write(~/.claude/projects/*/memory/*)",
+      "Edit(~/.claude/projects/*/memory/*)"
     ],
     "ask": [
       "Bash(git push --force *)",
@@ -29,9 +31,11 @@
       "Bash(git reset --hard *)"
     ]
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "bunx -y ccstatusline@latest",
     "padding": 0
-  }
+  },
+  "effortLevel": "high"
 }

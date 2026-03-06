@@ -12,24 +12,16 @@ description: >
 Systematic checklist to persist everything from working memory to disk before a
 session ends. Run through each section and report what was found/done.
 
-## 1. Uncommitted changes
+## 1. Collect state
 
-Check `git status` and `git diff --stat` in the working directory.
+Run [collect.sh](collect.sh) from the project root to gather all session state in one pass. It outputs git status, uncommitted changes, unpushed commits, new TODOs/FIXMEs, and status-bearing docs.
 
-- If there are staged or unstaged changes, ask the user if they want to commit.
-- If clean, confirm and move on.
+## 2. Analyze and act
 
-## 2. Spec and doc status
+Using the collector output:
 
-Scan for specs, roadmaps, or task lists that were worked on during the session.
-
-- Mark completed items as done (checkboxes, status fields).
-- Update spec status headers (e.g., "ready for implementation" to "implemented").
-- Update roadmap entries if milestones were hit.
-- Update project-level docs (README, CHANGELOG, architecture docs) if new features landed.
-
-Only update docs that are stale relative to what was actually built. Don't touch
-docs that are already accurate.
+- **Uncommitted changes**: If there are staged or unstaged changes, ask the user if they want to commit.
+- **Specs and docs**: Update status headers, checkboxes, or roadmap entries that are stale relative to what was built. Only touch docs that are actually out of date.
 
 ## 3. Persistent memory
 

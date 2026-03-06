@@ -30,20 +30,18 @@ Skip scopes for broad/obvious changes:
 - Use body text for complex changes requiring explanation
 - Reference issues/PRs when relevant: `fixes #123`
 
-### AI Attribution Trailers
+### AI Attribution
 
-Always add git trailers to identify AI-assisted commits:
+Add an `AI-Agent` trailer to every commit:
 
 ```
 feat(auth): add OAuth login support
 
 Optional body text.
 
-Coding-Agent: pi
-Model: claude-opus-4-6
+AI-Agent: pi (claude-opus-4-6)
 ```
 
-- `Coding-Agent`: the tool name (e.g. `pi`, `Claude Code`). Include version if available.
-- `Model`: read from `defaultModel` in `~/.pi/agent/settings.json`. If the field is
-  missing or the file is unreadable, ask the user. Do not guess.
-- Trailers go after a blank line following the body (or subject if no body).
+Format: `AI-Agent: <tool> (<model>)`. Use only values you know for certain.
+If you do not know the model, omit the parenthetical rather than guessing.
+Trailers go after a blank line following the body (or subject if no body).

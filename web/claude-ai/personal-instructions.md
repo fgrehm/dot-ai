@@ -1,5 +1,5 @@
-<!-- Paste this into: claude.ai > Settings > Profile > Personal Instructions -->
-<!-- Last synced: 2026-02-26 -->
+<!-- Paste this into: claude.ai > Settings > General > Profile > Personal Instructions -->
+<!-- Last synced: 2026-03-06 -->
 
 # Personal Instructions
 

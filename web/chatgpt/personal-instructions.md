@@ -1,5 +1,5 @@
 <!-- Paste this into: chatgpt.com > Settings > Personalization > Custom instructions -->
-<!-- Last synced: 2026-02-26 -->
+<!-- Last synced: 2026-03-06 -->
 
 # Personal Instructions
 

@@ -149,7 +149,8 @@ If multiple components need shared state (logger, config, verbose mode):
 4. **Estimate scope.** How many tasks? How many files? Is this foundational or standalone?
 5. **Clarify trade-offs.** When multiple approaches exist, explain why you chose one.
 6. **Link sections.** "See section X for Y" helps readers navigate.
-7. **Use tables.** For comparisons, integration points, or options:
+7. **Link sources.** Include a URL when referencing any tool, library, article, or documentation used in research or design decisions.
+8. **Use tables.** For comparisons, integration points, or options:
    ```markdown
    | Path | What's written | How |
    |---|---|---|

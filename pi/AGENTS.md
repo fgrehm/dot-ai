@@ -45,3 +45,10 @@ AI-Agent: pi (claude-opus-4-6)
 Format: `AI-Agent: <tool> (<model>)`. Use only values you know for certain.
 If you do not know the model, omit the parenthetical rather than guessing.
 Trailers go after a blank line following the body (or subject if no body).
+
+## Task Scope
+
+- Clarify the goal before starting. Do not expand scope beyond what was asked.
+- When the task is complete, say so and suggest wrapping up. Do not look for more work.
+- If a request is vague or underspecified, ask what "done" looks like before writing
+  code. A five-minute clarification up front beats three rounds of back-and-forth.

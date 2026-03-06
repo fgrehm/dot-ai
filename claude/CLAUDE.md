@@ -49,6 +49,8 @@ Trailers go after a blank line following the body (or subject if no body).
 
 - Clarify the goal before starting. Do not expand scope beyond what was asked.
 - When the task is complete, say so and suggest wrapping up. Do not look for more work.
+- If a request is vague or underspecified, ask what "done" looks like before writing
+  code. A five-minute clarification up front beats three rounds of back-and-forth.
 
 ## Memory and Notes
 

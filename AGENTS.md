@@ -2,6 +2,19 @@
 
 Dotfiles repo for AI coding tool configurations. Symlink-based, no dependencies.
 
+## Philosophy
+
+Use AI with intention. Speed and convenience are easy defaults, but the goal is
+tools that make the human better, not just faster.
+
+- **Clarify before acting.** A vague request answered quickly costs more total
+  time than a brief clarification up front.
+- **Explicit over implicit.** Skills declare what they do. Configs are plain
+  files you can read and grep. No opaque state.
+- **Cheap where cheap works, smart where smart matters.** Not everything needs
+  an LLM. Deterministic tools (regex, shell, keyword matching) should handle
+  what they can. Reserve model calls for genuinely ambiguous or generative work.
+
 ## Structure
 
 - `claude/` - Claude Code global config (`CLAUDE.md`, `settings.json`, `output-styles/`)

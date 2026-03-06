@@ -17,8 +17,22 @@ unlink_path() {
   fi
 }
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+
+unlink_skills() {
+  local target_dir="$1"
+  if [ ! -d "$target_dir" ]; then
+    echo "Skipping $target_dir (not a directory)"
+    return
+  fi
+  for skill_dir in "$SCRIPT_DIR/skills"/*/; do
+    skill_name="$(basename "$skill_dir")"
+    unlink_path "$target_dir/$skill_name"
+  done
+}
+
 echo "=== Claude Code ==="
-unlink_path "$HOME/.claude/skills"
+unlink_skills "$HOME/.claude/skills"
 unlink_path "$HOME/.claude/output-styles"
 unlink_path "$HOME/.claude/settings.json"
 unlink_path "$HOME/.claude/CLAUDE.md"
@@ -26,12 +40,12 @@ unlink_path "$HOME/.claude/CLAUDE.md"
 echo ""
 echo "=== pi ==="
 unlink_path "$HOME/.pi/agent/extensions"
-unlink_path "$HOME/.pi/agent/skills"
+unlink_skills "$HOME/.pi/agent/skills"
 unlink_path "$HOME/.pi/agent/AGENTS.md"
 
 echo ""
 echo "=== Shared ==="
-unlink_path "$HOME/.agents/skills"
+unlink_skills "$HOME/.agents/skills"
 
 echo ""
 echo "Done."

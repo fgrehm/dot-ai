@@ -13,7 +13,8 @@ dot-ai/
 │   └── output-styles/     # Custom output styles (Navigator v1/v2)
 ├── pi/
 │   └── AGENTS.md          # Global instructions for pi
-├── skills/                # Shared skills (symlinked to ~/.agents/skills/)
+├── skills/                # Shared skills (symlinked individually into ~/.agents/skills/ etc.)
+├── vendor-skill.sh        # Vendor third-party skills from GitHub
 ├── web/
 │   ├── claude-ai/
 │   │   ├── personal-instructions.md
@@ -56,18 +57,34 @@ No frameworks, no dependencies, just symlinks.
 ### Symlink layout
 
 ```
-~/.agents/skills/        -> skills/              # Shared skills (standard location)
-~/.claude/CLAUDE.md      -> claude/CLAUDE.md     # Global instructions for Claude Code
-~/.claude/settings.json  -> claude/settings.json # Permissions, model, telemetry
-~/.claude/output-styles/ -> claude/output-styles/ # Custom output styles
-~/.claude/skills/        -> skills/              # Claude Code skill discovery
-~/.pi/agent/AGENTS.md   -> pi/AGENTS.md          # Global instructions for pi
-~/.pi/agent/skills/      -> skills/              # pi skill discovery
+~/.agents/skills/<name>   -> skills/<name>/       # Per-skill symlinks (standard location)
+~/.claude/CLAUDE.md       -> claude/CLAUDE.md     # Global instructions for Claude Code
+~/.claude/settings.json   -> claude/settings.json # Permissions, model, telemetry
+~/.claude/output-styles/  -> claude/output-styles/ # Custom output styles
+~/.claude/skills/<name>   -> skills/<name>/       # Per-skill symlinks for Claude Code
+~/.pi/agent/AGENTS.md     -> pi/AGENTS.md         # Global instructions for pi
+~/.pi/agent/skills/<name> -> skills/<name>/       # Per-skill symlinks for pi
 ```
 
 ### Web chat configs (`web/`)
 
 Files under `web/` are **not** symlinked — they're reference copies you paste into each web UI's settings manually. The `<!-- Last synced -->` comment at the top of each file helps track when you last updated the live version.
+
+## Vendoring third-party skills
+
+Use `vendor-skill.sh` to download a skill from any public or private GitHub repo:
+
+```sh
+./vendor-skill.sh https://github.com/apollographql/skills/tree/main/skills/rust-best-practices
+```
+
+The script resolves the ref to a commit SHA, downloads just the skill directory, and writes a `README.md` with a link back to the exact source commit. You can also override the skill name:
+
+```sh
+./vendor-skill.sh https://github.com/user/repo/tree/main/path/to/skill my-custom-name
+```
+
+Requires `gh` (GitHub CLI) for authentication and API access.
 
 ## Ideas
 

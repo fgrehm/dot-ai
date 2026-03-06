@@ -14,6 +14,15 @@ Dotfiles repo for AI coding tool configurations. Symlink-based, no dependencies.
 
 `install.sh` symlinks files from this repo into `~/.claude/` and `~/.pi/agent/`. It backs up existing files before replacing them. `uninstall.sh` reverses the process.
 
+## Vendored skills
+
+Third-party skills are vendored with `vendor-skill.sh`. Each vendored skill's
+`README.md` has a `Source:` line at the top pointing to the exact commit it came
+from.
+
+When modifying a vendored skill, document the changes in its `README.md` under
+a `## Local changes` section so the delta from upstream is clear.
+
 ## Conventions
 
 - Plain files and directories only, no build tools or package managers

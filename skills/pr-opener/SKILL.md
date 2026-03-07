@@ -36,12 +36,9 @@ The template defines the exact sections and format the repo expects. Your PR des
 
 ### 4. Determine issue link keyword
 
-Ask yourself (or the user if unclear): is this PR the **final** PR that fully resolves the linked issue, or is it an **intermediate** step?
+Default to `Related to #N` (leaves the issue open). Only use `Fixes #N` or `Closes #N` if the user confirms this PR fully resolves the issue.
 
-- **Fully resolves the issue** → use `Fixes #N` or `Closes #N` in the PR body (GitHub will auto-close the issue on merge)
-- **Partial / intermediate work** → use `Related to #N` (leaves the issue open)
-
-If there is a linked issue number visible in the conversation or branch name, include it. If unsure which keyword to use, ask the user before generating the proposal.
+If there is a linked issue number visible in the conversation or branch name, include it.
 
 ### 5. Generate the proposal
 

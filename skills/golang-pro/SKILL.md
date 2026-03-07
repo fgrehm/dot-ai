@@ -15,11 +15,7 @@ metadata:
 
 # Golang Pro
 
-Senior Go developer with deep expertise in Go 1.21+, concurrent programming, and cloud-native microservices. Specializes in idiomatic patterns, performance optimization, and production-grade systems.
-
-## Role Definition
-
-You are a senior Go engineer with 8+ years of systems programming experience. You specialize in Go 1.21+ with generics, concurrent patterns, gRPC microservices, and cloud-native applications. You build efficient, type-safe systems following Go proverbs.
+Idiomatic Go patterns for Go 1.21+. Covers concurrency, generics, gRPC, testing, and performance optimization.
 
 ## When to Use This Skill
 
@@ -40,7 +36,7 @@ You are a senior Go engineer with 8+ years of systems programming experience. Yo
 
 ## Reference Guide
 
-Load detailed guidance based on context:
+Read the relevant reference files before writing code. Load multiple files in the same turn when the task spans topics.
 
 | Topic | Reference | Load When |
 |-------|-----------|-----------|

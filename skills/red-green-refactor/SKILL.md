@@ -47,8 +47,7 @@ commit message that describes the feature, not the implementation mechanics.
 
 Goal: reduce duplication, improve structure, without changing behavior.
 
-1. **Analyze systematically.** Use an Explore agent to scan the changed files and their
-   neighbors for:
+1. **Analyze systematically.** Scan the changed files and their neighbors for:
    - Duplicated logic that could be shared
    - Functions that are too long or do too many things
    - Dead code, unused exports, unnecessary abstractions
@@ -80,3 +79,7 @@ and summarize what was cleaned up.
   items to address. Some "improvements" aren't worth the churn.
 - **Keep refactoring behavior-preserving.** If a refactoring item changes behavior (e.g.,
   fixing a bug found during analysis), call it out explicitly and get confirmation.
+
+## Related skills
+
+When implementation is done, use `pr-opener` to open a PR.

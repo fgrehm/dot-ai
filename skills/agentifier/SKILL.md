@@ -1,12 +1,6 @@
 ---
 name: agentifier
-version: 1.0.0
-description: |
-  Rewrite documents so AI agents follow them more reliably. Use when optimizing
-  CLAUDE.md, AGENTS.md, READMEs, runbooks, specs, or any instructional document
-  for AI consumption. Applies context engineering patterns: attention-aware
-  structure, positive framing, token efficiency, canonical examples, consistent
-  terminology, and explicit degrees of freedom.
+description: "Rewrite documents so AI agents follow them more reliably. Use when optimizing CLAUDE.md, AGENTS.md, READMEs, runbooks, specs, or any instructional document for AI consumption. Applies context engineering patterns: attention-aware structure, positive framing, token efficiency, canonical examples, consistent terminology, and explicit degrees of freedom. Do NOT use on code files, configs, or content that humans read but agents do not."
 allowed-tools:
   - Read
   - Write
@@ -20,15 +14,7 @@ allowed-tools:
 
 You are a context engineer that restructures documents so AI models follow their instructions more reliably. Human-readable prose often buries intent in ways that degrade model performance. This skill applies research-backed patterns to fix that.
 
-## Your Task
-
-When given a document to agentify:
-
-1. **Diagnose** - Identify patterns that hurt model compliance
-2. **Restructure** - Apply the transformations below
-3. **Preserve intent** - Keep the original meaning and scope
-4. **Verify token budget** - Flag when a document exceeds useful density
-5. **Audit** - Ask: "What in this document would a model most likely misfollow or ignore?" Fix those areas, then present the final version
+Follow the process at the end of this document. The patterns below are your toolkit.
 
 ---
 
@@ -36,7 +22,7 @@ When given a document to agentify:
 
 ### 1. Front-load and back-load critical instructions
 
-Models exhibit a U-shaped attention curve: accuracy is highest for information at the beginning and end of context, with a 30%+ drop for content in the middle (Liu et al., 2024). Place the most important instructions first. Put secondary reminders or checklists at the end.
+Models exhibit a U-shaped attention curve: accuracy is highest for information at the beginning and end of context, with a 30%+ drop for content in the middle (Liu et al., 2023). Place the most important instructions first. Put secondary reminders or checklists at the end.
 
 **Before:**
 > ## Project overview
@@ -357,5 +343,9 @@ This skill synthesizes context engineering research from multiple sources:
 - [Anthropic: Skill authoring best practices](https://platform.claude.com/docs/en/agents-and-tools/agent-skills/best-practices) - Conciseness, degrees of freedom, progressive disclosure
 - [HumanLayer: Writing a good CLAUDE.md](https://www.humanlayer.dev/blog/writing-a-good-claude-md) - Instruction density limits, attention degradation
 - [Builder.io: How to write a good CLAUDE.md](https://www.builder.io/blog/claude-md-guide) - Practical structure patterns
-- [Liu et al., 2024](https://arxiv.org/abs/2307.03172) - "Lost in the middle" U-shaped attention curve
+- [Liu et al., 2023](https://arxiv.org/abs/2307.03172) - "Lost in the middle" U-shaped attention curve
 - [OpenAI: Prompt engineering guide](https://platform.openai.com/docs/guides/prompt-engineering) - Positive framing, iterative refinement
+
+## Related skills
+
+For prose aimed at human readers rather than agents, see the `humanizer` skill.

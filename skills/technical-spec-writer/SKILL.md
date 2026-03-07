@@ -1,13 +1,13 @@
 ---
 name: technical-spec-writer
-description: Create comprehensive technical specifications for features and refactoring. Use when designing new features, refactoring components, or planning architectural changes. Guides full spec creation from concept to implementation with test-first approach, proper formatting, task lists, and dependency tracking.
+description: Create technical specifications for features and refactoring. Use when designing new features, refactoring components, or planning architectural changes. Guides full spec creation from concept to implementation with test-first approach, proper formatting, task lists, and dependency tracking. Do NOT use for bug fixes, small changes, or tasks that fit in a single session without planning.
 ---
 
 # Technical Spec Writer
 
 ## Overview
 
-This skill guides the creation of comprehensive technical specifications for software features and refactoring. Specs are living documents that capture design decisions, implementation details, test requirements, and task organization for complex work.
+This skill guides the creation of technical specifications for software features and refactoring. Specs are living documents that capture design decisions, implementation details, test requirements, and task organization for complex work.
 
 **When to use:** Use this skill when you need to document a feature, refactor, or architectural change that requires careful planning, test-first development, and multi-session coordination.
 
@@ -22,7 +22,9 @@ Technical specs follow a consistent format. The workflow is:
 3. **Design the solution** - Plan the approach, architecture, and task breakdown
 4. **Write the spec** - Document everything following the template below
 5. **Scrutinize** - Review for completeness, consistency, and correctness
-6. **Finalize & commit** - Set status to "Finalized" and commit to git
+6. **User review** - Present the spec and ask the user for feedback. If the user approves without comments, push back once: "Are you sure? Specs are cheaper to fix than code. Anything you'd change about the scope, trade-offs, or task breakdown?" Accept their answer either way.
+7. **Final scrutiny** - After incorporating user feedback, run the scrutiny checklist one more time on the revised spec
+8. **Finalize & commit** - Set status to "Finalized" and commit to git
 
 ## Spec Template
 
@@ -228,6 +230,10 @@ Implement:
 - **Template spec asset:** See `assets/template-spec.md` for a blank starting point
 - **Existing specs:** Check your project's spec directory for examples of effective spec structure
 - **Architecture docs:** Refer to your project's architecture or design documentation for existing patterns
+
+## Related skills
+
+After the spec is finalized, use `red-green-refactor` for implementation.
 
 ---
 

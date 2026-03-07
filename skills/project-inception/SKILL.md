@@ -1,6 +1,6 @@
 ---
 name: project-inception
-description: "Structured project inception through interview, documentation, and scaffolding. Use when starting a new project (CLI tools, libraries, web apps, backends, etc.) to conduct a detailed interview about vision/scope/tech, generate foundational documentation (README with philosophy, CLAUDE.md for AI context, ROADMAP for phased plan), and scaffold initial code structure with git setup. Adapts questions and outputs based on project type."
+description: "Structured project inception through interview, documentation, and scaffolding. Use when starting a new project (CLI tools, libraries, web apps, backends, etc.) to conduct a detailed interview about vision/scope/tech, generate foundational documentation (README with philosophy, CLAUDE.md for AI context, ROADMAP for phased plan), and scaffold initial code structure with git setup. Adapts questions and outputs based on project type. Do NOT use for existing projects. Use only when starting from scratch."
 ---
 
 # Project Inception
@@ -56,6 +56,17 @@ See [references/interview_questions.md](references/interview_questions.md) for t
 - Follow with tech/architecture questions
 - End with MVP and roadmap questions
 - Adapt based on responses (ask follow-ups, skip irrelevant questions)
+
+### Universal questions (ask these for every project)
+
+1. What does this project do in one sentence?
+2. Who is the primary user? (yourself, a team, the public)
+3. What's the MVP, the minimum version worth shipping?
+4. What tech stack, and why? (or: any constraints on tech choice?)
+5. What does "done" look like for phase 1?
+
+For project-type-specific questions, see
+[references/interview_questions.md](references/interview_questions.md).
 
 **Keep it conversational:** These aren't a rigid quiz. Ask natural follow-ups, skip questions if already answered, reword for clarity.
 

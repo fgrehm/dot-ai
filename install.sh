@@ -66,10 +66,6 @@ cleanup_legacy "$HOME/.claude/settings.json"
 cleanup_legacy "$HOME/.claude/output-styles"
 cleanup_legacy "$HOME/.claude/skills"
 
-echo "=== Shared ==="
-link_skills "$HOME/.agents/skills"
-
-echo ""
 echo "=== Claude Code ==="
 link "$SCRIPT_DIR/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 link "$SCRIPT_DIR/claude/settings.json" "$HOME/.claude/settings.json"

@@ -1,10 +1,6 @@
 ---
 name: end-of-session
-description: >
-  Flush working context to disk before ending a coding session. Use when the user
-  says things like "let's wrap up", "end of session", "call it a session", "flush to
-  disk", "save context", "anything to persist?", or signals they're done working. Also invoke proactively
-  when context is getting long and the user hasn't explicitly saved progress.
+description: "Flush working context to disk before ending a coding session. Use when the user says things like let's wrap up, end of session, call it a session, flush to disk, save context, anything to persist?, or signals they're done working. Also invoke proactively when context is getting long and the user hasn't explicitly saved progress."
 ---
 
 # End of Session
@@ -25,10 +21,7 @@ Using the collector output:
 
 ## 3. Persistent memory
 
-Review the session for learnings worth preserving across sessions. Prefer
-lightweight memory files (auto-memory, notes) over project-level docs like
-CLAUDE.md or AGENTS.md. Only update those heavyweight files for major learnings
-or architectural decisions. When in doubt, ask the user before touching them.
+Review the session for learnings worth preserving across sessions. Write learnings to the project's `.ai/` directory (e.g., `.ai/notes.md`). Only update heavyweight files like CLAUDE.md or AGENTS.md for major learnings or architectural decisions. When in doubt, ask the user before touching them.
 
 Worth saving (to memory files):
 - Stable patterns confirmed during the session
@@ -64,3 +57,7 @@ Summarize what was persisted and what's still pending. Keep it short:
 - Memory entries added/updated (list)
 - Dangling items (if any)
 - Unpushed commits (remind user if ahead of remote)
+
+## Related skills
+
+If there's completed work ready for review, consider the `pr-opener` skill before wrapping up.

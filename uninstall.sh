@@ -44,8 +44,4 @@ unlink_skills "$HOME/.pi/agent/skills"
 unlink_path "$HOME/.pi/agent/AGENTS.md"
 
 echo ""
-echo "=== Shared ==="
-unlink_skills "$HOME/.agents/skills"
-
-echo ""
 echo "Done."

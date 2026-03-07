@@ -57,13 +57,12 @@ No frameworks, no dependencies, just symlinks.
 ### Symlink layout
 
 ```
-~/.agents/skills/<name>   -> skills/<name>/       # Per-skill symlinks (standard location)
-~/.claude/CLAUDE.md       -> claude/CLAUDE.md     # Global instructions for Claude Code
-~/.claude/settings.json   -> claude/settings.json # Permissions, model, telemetry
+~/.claude/CLAUDE.md       -> claude/CLAUDE.md      # Global instructions for Claude Code
+~/.claude/settings.json   -> claude/settings.json  # Permissions, model, telemetry
 ~/.claude/output-styles/  -> claude/output-styles/ # Custom output styles
-~/.claude/skills/<name>   -> skills/<name>/       # Per-skill symlinks for Claude Code
-~/.pi/agent/AGENTS.md     -> pi/AGENTS.md         # Global instructions for pi
-~/.pi/agent/skills/<name> -> skills/<name>/       # Per-skill symlinks for pi
+~/.claude/skills/<name>   -> skills/<name>/        # Per-skill symlinks for Claude Code
+~/.pi/agent/AGENTS.md     -> pi/AGENTS.md          # Global instructions for pi
+~/.pi/agent/skills/<name> -> skills/<name>/        # Per-skill symlinks for pi
 ```
 
 ### Web chat configs (`web/`)
@@ -85,6 +84,11 @@ The script resolves the ref to a commit SHA, downloads just the skill directory,
 ```
 
 Requires `gh` (GitHub CLI) for authentication and API access.
+
+## Maintenance
+
+- `CHANGELOG.md` - What changed and when. Update after each round of edits.
+- `SCRATCHPAD.md` - Raw observations, misfires, half-formed ideas. Review before each round of changes; promote to tasks or delete when stale.
 
 ## Ideas
 

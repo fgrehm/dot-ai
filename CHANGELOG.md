@@ -1,0 +1,22 @@
+# Changelog
+
+Format: date, file(s) changed, what and why. Newest first.
+
+## 2026-03-07
+
+- `skills/fact-checker/` - New skill: verify factual claims in text before publishing
+- `claude/CLAUDE.md` - Added skill awareness section, clarified `.ai/` memory convention
+- `pi/AGENTS.md` - Added skill awareness section
+- `skills/end-of-session/SKILL.md` - Updated memory section to reference `.ai/` directory, added related skills
+- `skills/agentifier/SKILL.md` - Deduplicated "Your Task" and "Process" sections, fixed Liu et al. citation year (2024 -> 2023), removed `version` field, added negative trigger and cross-reference
+- `skills/humanizer/SKILL.md` - Scoped voice rules to output text, consolidated inflated language patterns (1+2+4+7 -> 1), renumbered patterns, removed `version` field, added negative trigger and cross-reference
+- `skills/golang-pro/SKILL.md` - Removed role-play framing, clarified reference-loading instruction
+- `skills/red-green-refactor/SKILL.md` - Made tool-agnostic (removed "Explore agent" reference), added related skills
+- `skills/pr-opener/SKILL.md` - Defaulted issue link keyword to safe `Related to #N`
+- `skills/project-inception/SKILL.md` - Inlined 5 universal interview questions, added negative trigger
+- `skills/technical-spec-writer/SKILL.md` - Added negative trigger, related skills, and user review + final scrutiny pass
+- `install.sh` - Removed `~/.agents/skills/` shared symlink (each tool uses its own skills dir)
+- `README.md` - Removed `~/.agents/skills` from symlink layout, added Maintenance section
+- `CLAUDE.md` (project) - Updated skills path, added no-line-wrap convention for agent-consumed files
+- `skills/humanizer/README.md` - Added `## Local changes` section, updated pattern table to match renumbering
+- `skills/fact-checker/README.md` - Removed pi.dev and Codex sections, removed DigitalOcean link, used GitHub callout

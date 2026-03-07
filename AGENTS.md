@@ -14,7 +14,7 @@ Use AI with intention. Speed and convenience are easy defaults, but the goal is 
 
 - `claude/` - Claude Code global config (`CLAUDE.md`, `settings.json`, `output-styles/`)
 - `pi/` - pi global config (`AGENTS.md`)
-- `skills/` - Shared skills for all coding agents (symlinked to `~/.agents/skills/`)
+- `skills/` - Shared skills for all coding agents (symlinked per-tool into `~/.claude/skills/`, `~/.pi/agent/skills/`)
 - `web/` - Web chat interface configs (Claude.ai, ChatGPT), manual copy-paste, not symlinked
 - `install.sh` / `uninstall.sh` - Symlink management scripts
 
@@ -34,6 +34,7 @@ When modifying a vendored skill, document the changes in its `README.md` under a
 - Shell scripts should be POSIX-compatible where practical
 - Keep configs minimal and well-commented
 - Include a URL when referencing any tool, library, article, or documentation
+- Do not hard-wrap lines in SKILL.md files (including YAML frontmatter). These are read by models, not displayed in fixed-width terminals
 
 ### Inline annotations
 

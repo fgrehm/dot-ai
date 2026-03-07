@@ -1,13 +1,6 @@
 ---
 name: humanizer
-version: 2.2.0
-description: |
-  Remove signs of AI-generated writing from text. Use when editing or reviewing
-  text to make it sound more natural and human-written. Based on Wikipedia's
-  comprehensive "Signs of AI writing" guide. Detects and fixes patterns including:
-  inflated symbolism, promotional language, superficial -ing analyses, vague
-  attributions, em dash overuse, rule of three, AI vocabulary words, negative
-  parallelisms, and excessive conjunctive phrases.
+description: "Remove signs of AI-generated writing from text. Use when editing or reviewing text to make it sound more natural and human-written. Based on Wikipedia's Signs of AI writing guide. Detects and fixes patterns including: inflated symbolism, promotional language, superficial -ing analyses, vague attributions, em dash overuse, rule of three, AI vocabulary words, negative parallelisms, and excessive conjunctive phrases. Do NOT use on technical documentation, API docs, or code comments. Only use on prose intended for human readers."
 allowed-tools:
   - Read
   - Write
@@ -35,6 +28,8 @@ When given text to humanize:
 ---
 
 ## PERSONALITY AND SOUL
+
+These guidelines apply to the text being humanized, not to agent communication. When editing text for a user, follow these voice guidelines. When writing your own messages to the user, follow the project's CLAUDE.md/AGENTS.md style rules.
 
 Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as obvious as slop. Good writing has a human behind it.
 
@@ -70,35 +65,33 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## CONTENT PATTERNS
 
-### 1. Undue Emphasis on Significance, Legacy, and Broader Trends
+### 1. Inflated Language
 
-**Words to watch:** stands/serves as, is a testament/reminder, a vital/significant/crucial/pivotal/key role/moment, underscores/highlights its importance/significance, reflects broader, symbolizing its ongoing/enduring/lasting, contributing to the, setting the stage for, marking/shaping the, represents/marks a shift, key turning point, evolving landscape, focal point, indelible mark, deeply rooted
+**Words to watch:** stands/serves as, is a testament/reminder, a vital/significant/crucial/pivotal/key role/moment, underscores/highlights its importance/significance, reflects broader, symbolizing its ongoing/enduring/lasting, contributing to the, setting the stage for, marking/shaping the, represents/marks a shift, key turning point, evolving landscape, focal point, indelible mark, deeply rooted, boasts a, vibrant, rich (figurative), profound, showcasing, exemplifies, commitment to, natural beauty, nestled, in the heart of, groundbreaking (figurative), renowned, breathtaking, must-visit, stunning, active social media presence, Additionally, align with, crucial, delve, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, landscape (abstract noun), tapestry (abstract noun), valuable
 
-**Problem:** LLM writing puffs up importance by adding statements about how arbitrary aspects represent or contribute to a broader topic.
+**Problem:** LLMs inflate importance by adding statements about how things represent, contribute to, or are a testament to broader topics. This shows up as significance inflation, promotional language, notability claims, and overuse of certain "AI vocabulary" words (additionally, delve, tapestry, vibrant, etc.). These patterns often co-occur.
 
-**Before:**
+**Before (significance inflation):**
 > The Statistical Institute of Catalonia was officially established in 1989, marking a pivotal moment in the evolution of regional statistics in Spain. This initiative was part of a broader movement across Spain to decentralize administrative functions and enhance regional governance.
 
 **After:**
 > The Statistical Institute of Catalonia was established in 1989 to collect and publish regional statistics independently from Spain's national statistics office.
 
----
-
-### 2. Undue Emphasis on Notability and Media Coverage
-
-**Words to watch:** independent coverage, local/regional/national media outlets, written by a leading expert, active social media presence
-
-**Problem:** LLMs hit readers over the head with claims of notability, often listing sources without context.
-
-**Before:**
+**Before (notability claims):**
 > Her views have been cited in The New York Times, BBC, Financial Times, and The Hindu. She maintains an active social media presence with over 500,000 followers.
 
 **After:**
 > In a 2024 New York Times interview, she argued that AI regulation should focus on outcomes rather than methods.
 
+**Before (AI vocabulary):**
+> Additionally, a distinctive feature of Somali cuisine is the incorporation of camel meat. An enduring testament to Italian colonial influence is the widespread adoption of pasta in the local culinary landscape, showcasing how these dishes have integrated into the traditional diet.
+
+**After:**
+> Somali cuisine also includes camel meat, which is considered a delicacy. Pasta dishes, introduced during Italian colonization, remain common, especially in the south.
+
 ---
 
-### 3. Superficial Analyses with -ing Endings
+### 2. Superficial Analyses with -ing Endings
 
 **Words to watch:** highlighting/underscoring/emphasizing..., ensuring..., reflecting/symbolizing..., contributing to..., cultivating/fostering..., encompassing..., showcasing...
 
@@ -112,21 +105,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 4. Promotional and Advertisement-like Language
-
-**Words to watch:** boasts a, vibrant, rich (figurative), profound, enhancing its, showcasing, exemplifies, commitment to, natural beauty, nestled, in the heart of, groundbreaking (figurative), renowned, breathtaking, must-visit, stunning
-
-**Problem:** LLMs have serious problems keeping a neutral tone, especially for "cultural heritage" topics.
-
-**Before:**
-> Nestled within the breathtaking region of Gonder in Ethiopia, Alamata Raya Kobo stands as a vibrant town with a rich cultural heritage and stunning natural beauty.
-
-**After:**
-> Alamata Raya Kobo is a town in the Gonder region of Ethiopia, known for its weekly market and 18th-century church.
-
----
-
-### 5. Vague Attributions and Weasel Words
+### 3. Vague Attributions and Weasel Words
 
 **Words to watch:** Industry reports, Observers have cited, Experts argue, Some critics argue, several sources/publications (when few cited)
 
@@ -140,7 +119,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 6. Outline-like "Challenges and Future Prospects" Sections
+### 4. Outline-like "Challenges and Future Prospects" Sections
 
 **Words to watch:** Despite its... faces several challenges..., Despite these challenges, Challenges and Legacy, Future Outlook
 
@@ -156,21 +135,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## LANGUAGE AND GRAMMAR PATTERNS
 
-### 7. Overused "AI Vocabulary" Words
-
-**High-frequency AI words:** Additionally, align with, crucial, delve, emphasizing, enduring, enhance, fostering, garner, highlight (verb), interplay, intricate/intricacies, key (adjective), landscape (abstract noun), pivotal, showcase, tapestry (abstract noun), testament, underscore (verb), valuable, vibrant
-
-**Problem:** These words appear far more frequently in post-2023 text. They often co-occur.
-
-**Before:**
-> Additionally, a distinctive feature of Somali cuisine is the incorporation of camel meat. An enduring testament to Italian colonial influence is the widespread adoption of pasta in the local culinary landscape, showcasing how these dishes have integrated into the traditional diet.
-
-**After:**
-> Somali cuisine also includes camel meat, which is considered a delicacy. Pasta dishes, introduced during Italian colonization, remain common, especially in the south.
-
----
-
-### 8. Avoidance of "is"/"are" (Copula Avoidance)
+### 5. Avoidance of "is"/"are" (Copula Avoidance)
 
 **Words to watch:** serves as/stands as/marks/represents [a], boasts/features/offers [a]
 
@@ -184,7 +149,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 9. Negative Parallelisms
+### 6. Negative Parallelisms
 
 **Problem:** Constructions like "Not only...but..." or "It's not just about..., it's..." are overused.
 
@@ -196,7 +161,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 10. Rule of Three Overuse
+### 7. Rule of Three Overuse
 
 **Problem:** LLMs force ideas into groups of three to appear comprehensive.
 
@@ -208,7 +173,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 11. Elegant Variation (Synonym Cycling)
+### 8. Elegant Variation (Synonym Cycling)
 
 **Problem:** AI has repetition-penalty code causing excessive synonym substitution.
 
@@ -220,7 +185,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 12. False Ranges
+### 9. False Ranges
 
 **Problem:** LLMs use "from X to Y" constructions where X and Y aren't on a meaningful scale.
 
@@ -234,7 +199,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## STYLE PATTERNS
 
-### 13. Em Dash Overuse
+### 10. Em Dash Overuse
 
 **Problem:** LLMs use em dashes (—) more than humans, mimicking "punchy" sales writing.
 
@@ -246,7 +211,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 14. Overuse of Boldface
+### 11. Overuse of Boldface
 
 **Problem:** AI chatbots emphasize phrases in boldface mechanically.
 
@@ -258,7 +223,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 15. Inline-Header Vertical Lists
+### 12. Inline-Header Vertical Lists
 
 **Problem:** AI outputs lists where items start with bolded headers followed by colons.
 
@@ -272,7 +237,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 16. Title Case in Headings
+### 13. Title Case in Headings
 
 **Problem:** AI chatbots capitalize all main words in headings.
 
@@ -284,7 +249,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 17. Emojis
+### 14. Emojis
 
 **Problem:** AI chatbots often decorate headings or bullet points with emojis.
 
@@ -298,7 +263,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 18. Curly Quotation Marks
+### 15. Curly Quotation Marks
 
 **Problem:** ChatGPT uses curly quotes (“...”) instead of straight quotes ("...").
 
@@ -312,7 +277,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## COMMUNICATION PATTERNS
 
-### 19. Collaborative Communication Artifacts
+### 16. Collaborative Communication Artifacts
 
 **Words to watch:** I hope this helps, Of course!, Certainly!, You're absolutely right!, Would you like..., let me know, here is a...
 
@@ -326,7 +291,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 20. Knowledge-Cutoff Disclaimers
+### 17. Knowledge-Cutoff Disclaimers
 
 **Words to watch:** as of [date], Up to my last training update, While specific details are limited/scarce..., based on available information...
 
@@ -340,7 +305,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 21. Sycophantic/Servile Tone
+### 18. Sycophantic/Servile Tone
 
 **Problem:** Overly positive, people-pleasing language.
 
@@ -354,7 +319,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ## FILLER AND HEDGING
 
-### 22. Filler Phrases
+### 19. Filler Phrases
 
 **Before → After:**
 - "In order to achieve this goal" → "To achieve this"
@@ -366,7 +331,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 23. Excessive Hedging
+### 20. Excessive Hedging
 
 **Problem:** Over-qualifying statements.
 
@@ -378,7 +343,7 @@ Avoiding AI patterns is only half the job. Sterile, voiceless writing is just as
 
 ---
 
-### 24. Generic Positive Conclusions
+### 21. Generic Positive Conclusions
 
 **Problem:** Vague upbeat endings.
 
@@ -486,3 +451,7 @@ Provide:
 This skill is based on [Wikipedia:Signs of AI writing](https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing), maintained by WikiProject AI Cleanup. The patterns documented there come from observations of thousands of instances of AI-generated text on Wikipedia.
 
 Key insight from Wikipedia: "LLMs use statistical algorithms to guess what should come next. The result tends toward the most statistically likely result that applies to the widest variety of cases."
+
+## Related skills
+
+For documents aimed at AI agents, see the `agentifier` skill.

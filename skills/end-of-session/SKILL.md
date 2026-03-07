@@ -14,7 +14,7 @@ session ends. Run through each section and report what was found/done.
 
 ## 1. Collect state
 
-Run [collect.sh](collect.sh) from the project root to gather all session state in one pass. It outputs git status, uncommitted changes, unpushed commits, new TODOs/FIXMEs, and status-bearing docs.
+Run `~/.agents/skills/end-of-session/collect.sh` from the project root to gather all session state in one pass. It outputs git status, uncommitted changes, unpushed commits, new TODOs/FIXMEs, and status-bearing docs.
 
 ## 2. Analyze and act
 

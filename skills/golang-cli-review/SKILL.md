@@ -1,9 +1,10 @@
 ---
 name: golang-cli-review
 description: |
-  Comprehensive code review for Golang CLI applications. Produces an actionable checklist covering error handling, CLI framework patterns (Cobra/urfave), testing, performance, security, and Go idioms.
+  Code review for Go CLI applications. Produces an actionable checklist covering error handling, CLI framework patterns (Cobra/urfave), testing, performance, security, and Go idioms.
 
-  TRIGGERS: Review Go CLI, review golang command-line, code review .go CLI, audit CLI application, check golang tool, review cobra app
+  TRIGGER when: reviewing Go CLI code, auditing a Cobra/urfave app, or asked to check a Go command-line tool.
+  Do NOT TRIGGER when: writing new Go code (use golang-pro), reviewing non-CLI Go projects, or general code review without a CLI focus.
 ---
 
 # Go CLI Code Review

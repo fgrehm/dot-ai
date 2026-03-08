@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-08
+
+- `skills/golang-cli-review/` - New vendored skill: code review checklist for Go CLI applications (error handling, Cobra patterns, flag design, I/O, security, testing)
+
 ## 2026-03-07
 
 - `skills/fact-checker/` - New skill: verify factual claims in text before publishing

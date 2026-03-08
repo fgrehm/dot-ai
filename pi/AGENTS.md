@@ -54,3 +54,7 @@ AI-Agent: pi (claude-opus-4-6)
 Use scopes when they clarify the component. Skip them for broad changes.
 
 Format: `AI-Agent: <tool> (<model>)`. Use only values you know for certain. Omit the parenthetical rather than guessing the model. Trailers go after a blank line following the body (or subject if no body).
+
+## Memory and notes
+
+Persist session learnings to `MEMORY.local.md` at the project root (gitignored, read it at session start if it exists). Update existing entries rather than appending duplicates.

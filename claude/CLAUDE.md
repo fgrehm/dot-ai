@@ -56,10 +56,4 @@ Format: `AI-Agent: <tool> (<model>)`. Use only values you know for certain. Omit
 
 ## Memory and notes
 
-Persist notes, context, and learnings to the project's `.ai/` directory.
-
-Example structure:
-- `.ai/notes.md` - session learnings, patterns, gotchas
-- `.ai/decisions.md` - architecture decisions with rationale
-
-Update existing entries rather than appending duplicates. Do not write to `~/.claude/projects/*/memory/` (denied by settings).
+Persist session learnings to `MEMORY.local.md` at the project root (gitignored, read it at session start if it exists). Update existing entries rather than appending duplicates. Do not write to `~/.claude/projects/*/memory/` (denied by settings).

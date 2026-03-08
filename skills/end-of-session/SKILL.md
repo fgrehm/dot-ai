@@ -10,7 +10,7 @@ session ends. Run through each section and report what was found/done.
 
 ## 1. Collect state
 
-Run `~/.agents/skills/end-of-session/collect.sh` from the project root to gather all session state in one pass. It outputs git status, uncommitted changes, unpushed commits, new TODOs/FIXMEs, and status-bearing docs.
+Run the `collect.sh` script available in the root of this skill's directory from the project root to gather all session state in one pass. It outputs git status, uncommitted changes, unpushed commits, new TODOs/FIXMEs, and status-bearing docs.
 
 ## 2. Analyze and act
 
@@ -21,7 +21,7 @@ Using the collector output:
 
 ## 3. Persistent memory
 
-Review the session for learnings worth preserving across sessions. Write learnings to the project's `.ai/` directory (e.g., `.ai/notes.md`). Only update heavyweight files like CLAUDE.md or AGENTS.md for major learnings or architectural decisions. When in doubt, ask the user before touching them.
+Review the session for learnings worth preserving across sessions. Write learnings to `MEMORY.local.md` at the project root (gitignored). Only update heavyweight files like `CLAUDE.md` or `AGENTS.md` for major learnings or architectural decisions. When in doubt, ask the user before touching them.
 
 Worth saving (to memory files):
 - Stable patterns confirmed during the session

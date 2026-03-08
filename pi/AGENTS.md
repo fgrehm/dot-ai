@@ -30,14 +30,12 @@ Include a URL when referencing any tool, library, article, or documentation. Whe
 
 ## Commit format
 
-Conventional commits, present tense, under 72 characters. Add an `AI-Agent` trailer to every commit.
+Conventional commits, present tense, under 72 characters.
 
 Examples:
 
 ```
 feat(auth): add OAuth login support
-
-AI-Agent: pi (claude-opus-4-6)
 ```
 
 ```
@@ -47,13 +45,9 @@ Moved timer cleanup into the finally block to prevent accumulation
 during long-running sessions.
 
 Fixes #123
-
-AI-Agent: pi (claude-opus-4-6)
 ```
 
 Use scopes when they clarify the component. Skip them for broad changes.
-
-Format: `AI-Agent: <tool> (<model>)`. Use only values you know for certain. Omit the parenthetical rather than guessing the model. Trailers go after a blank line following the body (or subject if no body).
 
 ## Memory and notes
 

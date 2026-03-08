@@ -4,6 +4,7 @@ Format: date, file(s) changed, what and why. Newest first.
 
 ## 2026-03-08
 
+- `claude/CLAUDE.md`, `pi/AGENTS.md`, `skills/end-of-session/SKILL.md` - Standardized memory convention: use `MEMORY.local.md` at project root instead of `.ai/` directory
 - `skills/golang-cli-review/` - New vendored skill: code review checklist for Go CLI applications (error handling, Cobra patterns, flag design, I/O, security, testing)
 
 ## 2026-03-07

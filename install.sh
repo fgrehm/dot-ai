@@ -3,9 +3,22 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
+DRY_RUN=false
+for arg in "$@"; do
+  case "$arg" in
+    --dry-run|-n) DRY_RUN=true ;;
+    *) echo "Unknown option: $arg"; exit 1 ;;
+  esac
+done
+
 link() {
   local src="$1"
   local dest="$2"
+
+  if $DRY_RUN; then
+    echo "[dry-run] Would link $dest -> $src"
+    return
+  fi
 
   if [ -L "$dest" ]; then
     rm "$dest"
@@ -17,6 +30,74 @@ link() {
   mkdir -p "$(dirname "$dest")"
   ln -s "$src" "$dest"
   echo "Linked $dest -> $src"
+}
+
+# Deep-merge base settings into the live file.
+# - Objects merge recursively (base wins for shared scalar keys)
+# - Permission arrays (allow, deny, ask) are concatenated and deduplicated
+# - Machine-only keys (hooks, plugins) are preserved
+merge_settings() {
+  local base="$1"
+  local target="$2"
+
+  if ! command -v jq >/dev/null 2>&1; then
+    echo "ERROR: jq is required for settings merge (https://jqlang.github.io/jq/)"
+    exit 1
+  fi
+
+  if [ ! -e "$target" ] && [ ! -L "$target" ]; then
+    if $DRY_RUN; then
+      echo "[dry-run] Would copy $base -> $target (new file)"
+      return
+    fi
+    mkdir -p "$(dirname "$target")"
+    cp "$base" "$target"
+    echo "Copied $base -> $target (new file)"
+    return
+  fi
+
+  # If target is still a symlink (old install), replace with a copy of the
+  # base. There are no machine-local keys to preserve in a symlinked file.
+  if [ -L "$target" ]; then
+    if $DRY_RUN; then
+      echo "[dry-run] Would replace symlink $target with merged file"
+      return
+    fi
+    rm "$target"
+    cp "$base" "$target"
+    echo "Migrated $target from symlink to merged file"
+    return
+  fi
+
+  local merged
+  merged=$(jq -s '
+    def merge_arrays: map(. // []) | add | unique;
+    .[0] as $local | .[1] as $base |
+    ($local * $base) |
+    .permissions.allow = ([$local.permissions.allow, $base.permissions.allow] | merge_arrays) |
+    .permissions.deny = ([$local.permissions.deny, $base.permissions.deny] | merge_arrays) |
+    .permissions.ask = ([$local.permissions.ask, $base.permissions.ask] | merge_arrays)
+  ' "$target" "$base")
+
+  local current_sorted merged_sorted
+  current_sorted=$(jq --sort-keys . "$target")
+  merged_sorted=$(echo "$merged" | jq --sort-keys .)
+
+  if [ "$current_sorted" = "$merged_sorted" ]; then
+    echo "Settings $target already up to date"
+    return
+  fi
+
+  echo "Settings diff for $target:"
+  diff -u --label "current" --label "merged" \
+    <(echo "$current_sorted") <(echo "$merged_sorted") || true
+
+  if $DRY_RUN; then
+    return
+  fi
+
+  echo "$merged" | jq . > "${target}.tmp" && mv "${target}.tmp" "$target"
+  echo "Merged $base -> $target"
 }
 
 # Clean up legacy chezmoi-managed symlinks (pointed to dotfiles repo config/claude/)
@@ -68,7 +149,7 @@ cleanup_legacy "$HOME/.claude/skills"
 
 echo "=== Claude Code ==="
 link "$SCRIPT_DIR/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
-link "$SCRIPT_DIR/claude/settings.json" "$HOME/.claude/settings.json"
+merge_settings "$SCRIPT_DIR/claude/settings.json" "$HOME/.claude/settings.json"
 link "$SCRIPT_DIR/claude/output-styles" "$HOME/.claude/output-styles"
 link_skills "$HOME/.claude/skills"
 

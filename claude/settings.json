@@ -8,6 +8,10 @@
     "pr": ""
   },
   "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "Bash(bash */.claude/skills/end-of-session/collect.sh)"
+    ],
     "deny": [
       "Bash(rm -rf *)",
       "Bash(chmod 777 *)",

@@ -2,6 +2,11 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-10
+
+- `install.sh` - Switch settings.json from symlink to jq deep merge. Repo base wins for scalar keys, permission arrays (allow, deny, ask) are concatenated and deduplicated, machine-only keys (hooks, plugins) are preserved. Prevents tools and plugins from replacing the symlink and silently losing config. Added `--dry-run` / `-n` flag to preview changes without applying.
+- `uninstall.sh` - Skip settings.json on uninstall (merged file, no longer a symlink)
+
 ## 2026-03-08
 
 - `claude/CLAUDE.md`, `pi/AGENTS.md`, `skills/end-of-session/SKILL.md` - Standardized memory convention: use `MEMORY.local.md` at project root instead of `.ai/` directory

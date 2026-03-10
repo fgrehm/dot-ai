@@ -34,7 +34,7 @@ unlink_skills() {
 echo "=== Claude Code ==="
 unlink_skills "$HOME/.claude/skills"
 unlink_path "$HOME/.claude/output-styles"
-unlink_path "$HOME/.claude/settings.json"
+echo "Skipping $HOME/.claude/settings.json (merged file, not a symlink; edit manually)"
 unlink_path "$HOME/.claude/CLAUDE.md"
 
 echo ""

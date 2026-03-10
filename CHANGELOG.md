@@ -4,6 +4,7 @@ Format: date, file(s) changed, what and why. Newest first.
 
 ## 2026-03-10
 
+- `skills/red-green-refactor/SKILL.md` - Added cross-reference to `/simplify` (built-in Claude Code slash command) as the lightweight alternative for small or post-hoc cleanups that don't warrant the full cycle. Noted it is Claude Code-only and not available in pi.
 - `skills/technical-spec-writer/SKILL.md` - Reduce code verbosity: specs describe design, not implementation-ready code. Added commit plan subsection to Implementation Order for mapping tasks to atomic, reviewable commits.
 - `install.sh` - Switch settings.json from symlink to jq deep merge. Repo base wins for scalar keys, permission arrays (allow, deny, ask) are concatenated and deduplicated, machine-only keys (hooks, plugins) are preserved. Prevents tools and plugins from replacing the symlink and silently losing config. Added `--dry-run` / `-n` flag to preview changes without applying.
 - `uninstall.sh` - Skip settings.json on uninstall (merged file, no longer a symlink)

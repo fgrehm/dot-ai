@@ -83,3 +83,5 @@ and summarize what was cleaned up.
 ## Related skills
 
 When implementation is done, use `pr-opener` to open a PR.
+
+For quick, unstructured cleanup of already-committed code (no cycle, no approval flow), use `/simplify`. It is a built-in Claude Code slash command (not available in pi or other agents) that reviews changed code for reuse, quality, and efficiency, then fixes issues in one pass. Prefer it when the task is small or post-hoc and the full red-green-refactor cycle would be overkill.

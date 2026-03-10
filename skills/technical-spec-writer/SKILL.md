@@ -60,8 +60,8 @@ Every section follows test-first development. Task lists are ordered: **write te
 
 **Main Sections** (each section has):
 1. **Current State** - How things work now (if refactoring) or the problem we're solving
-2. **Design** - The approach, including pseudocode, architecture, or flowcharts
-3. **Implementation Details** - Specific files, functions, interfaces to change
+2. **Design** - The approach, architecture, data flow, or key interfaces. Use brief pseudocode only when the algorithm is non-obvious. Do not write implementation-ready code; the spec describes *what* and *why*, not the final *how*.
+3. **Implementation Details** - Files, functions, and interfaces to create or change. Name them, describe their responsibility, and note signatures or type shapes when useful. Do not write function bodies.
 4. **Tasks** - Organized as:
    - Tests first (numbered, `- [ ] **Test:** ...`)
    - Implementation (numbered, `- [ ] Implement X`)
@@ -79,6 +79,14 @@ Recommended sequencing (some tasks can be parallelized; dependencies noted):
 2. **Section 2** -- depends on Section 1; unblocks Section 3
 
 **Parallelizable:** After step X, steps Y-Z can run in parallel. Step Y must finish before step Z can finish.
+
+### Commit Plan
+
+Each commit should be a logical, reviewable unit (typically one section's tests + implementation):
+
+1. `feat(config): add env var override support` -- Section 1
+2. `refactor(logging): add structured logging` -- Section 4
+3. `feat(events): add event scrubbing` -- Sections 2-3 (small, related)
 ```
 
 **Footer:**
@@ -147,7 +155,7 @@ If multiple components need shared state (logger, config, verbose mode):
 
 1. **Be specific.** "Add logging" is vague. "Add slog.Debug calls in executor.Run() before action dispatch" is clear.
 2. **Include line numbers/file paths.** Reference actual code: `internal/config/config.go:52`
-3. **Show pseudocode.** Don't assume code will "just work." Pseudo code shows the algorithm.
+3. **Stay at design level.** Describe algorithms in prose or brief pseudocode. If you catch yourself writing something that compiles, you have gone too far.
 4. **Estimate scope.** How many tasks? How many files? Is this foundational or standalone?
 5. **Clarify trade-offs.** When multiple approaches exist, explain why you chose one.
 6. **Link sections.** "See section X for Y" helps readers navigate.
@@ -176,6 +184,7 @@ Before finalizing, review:
 - [ ] Integration points documented
 - [ ] Tests include isolation/cleanup patterns
 - [ ] Implementation order has clear dependencies
+- [ ] Commit plan maps tasks to reviewable, atomic commits
 - [ ] Scope is reasonable for a session or two
 
 ## Example Sections

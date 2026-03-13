@@ -51,3 +51,5 @@ Use scopes when they clarify the component. Skip them for broad changes.
 ## Memory and notes
 
 Persist session learnings to `MEMORY.local.md` at the project root (gitignored, read it at session start if it exists). Update existing entries rather than appending duplicates. Do not write to `~/.claude/projects/*/memory/` (denied by settings).
+
+@~/projects/dot-ai-private/claude/CLAUDE.md

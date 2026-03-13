@@ -102,6 +102,27 @@ Present results to the user in this format:
 - ? "Claim Z": no authoritative source found. Consider removing or hedging.
 ```
 
+## Configuration examples - special scrutiny
+
+Configuration examples are high-risk for hallucination. Before approving any config block:
+
+1. **Verify the file path exists in official docs** - `.tool-name/config.yml` - does this format exist?
+2. **Verify the configuration options** - Are option names exactly as documented? Correct data types (array vs object vs string)? Correct nested paths?
+3. **Check for deprecated formats** - Has the config format changed in recent versions?
+
+**Common hallucination patterns to watch for:**
+- Inventing `.hidden-dir/config.yml` files that don't exist
+- Creating YAML configs when the tool uses TOML or JSON
+- Mixing up config locations (e.g. LSP `init_options` vs a separate config file)
+- Assuming a config file exists because a directory exists (e.g. `.ruby-lsp/` != `.ruby-lsp/config.yml`)
+- Performance claims without measurements ("this reduces time by 50%")
+
+**Red flags:**
+- "You can configure X via `some/path.yml`" without a documentation link
+- Config examples with TODO markers still in them
+
+When a config block can't be verified against official docs, flag it as `HALLUCINATED` rather than `UNVERIFIABLE`.
+
 ## AI slop detection
 
 Beyond individual claim verification, watch for these patterns that signal AI-generated

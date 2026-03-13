@@ -28,6 +28,10 @@ Third-party skills are vendored with `vendor-skill.sh`. Each vendored skill's `R
 
 When modifying a vendored skill, document the changes in its `README.md` under a `## Local changes` section so the delta from upstream is clear.
 
+## GitHub interactions
+
+**NEVER comment on GitHub on behalf of the user.** Do not post issue comments, PR reviews, replies, or any GitHub interactions. Opening draft pull requests is OK. For everything else, always ask first. No exceptions.
+
 ## Conventions
 
 - Plain files and directories only, no build tools or package managers

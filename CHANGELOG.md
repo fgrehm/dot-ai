@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-13
+
+- `claude/CLAUDE.md`, `CLAUDE.md` (project), `pi/AGENTS.md` - Added explicit GitHub interaction restriction: never comment on GitHub on user's behalf. Draft PRs are OK; all other interactions require explicit user request. No exceptions.
+
 ## 2026-03-10
 
 - `skills/red-green-refactor/SKILL.md` - Added cross-reference to `/simplify` (built-in Claude Code slash command) as the lightweight alternative for small or post-hoc cleanups that don't warrant the full cycle. Noted it is Claude Code-only and not available in pi.

@@ -2,6 +2,12 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-14
+
+- `skills/review-comments/` - New skill: fetch and act on PR review comments. Auto-detects repo/PR from git context, filters by reviewer (defaults to Copilot), fetches latest review only (or all with `--all` for final pass)
+- `claude/settings.json` - Added permission for `review-comments/scripts/fetch-comments.sh`
+- `install.sh` - Strip trailing slash from skill_dir in glob expansion before passing to `basename`/`link`
+
 ## 2026-03-13
 
 - `claude/CLAUDE.md`, `CLAUDE.md` (project), `pi/AGENTS.md` - Added explicit GitHub interaction restriction: never comment on GitHub on user's behalf. Draft PRs are OK; all other interactions require explicit user request. No exceptions.

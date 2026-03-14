@@ -137,6 +137,7 @@ link_skills() {
 
   for skill_dir in "$SCRIPT_DIR/skills"/*/; do
     [ -d "$skill_dir" ] || continue
+    skill_dir="${skill_dir%/}"
     skill_name="$(basename "$skill_dir")"
     link "$skill_dir" "$target_dir/$skill_name"
   done

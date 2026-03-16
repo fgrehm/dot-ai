@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-15
+
+- `skills/review-comments/SKILL.md` - Fix script path resolution: use `$SKILL_SCRIPT` discovery pattern that checks both `~/.claude/skills/` and `~/.pi/agent/skills/` so the bundled script is found regardless of which tool runs the skill (was using a bare relative path that resolved against the project CWD and always failed)
+
 ## 2026-03-14
 
 - `skills/review-comments/` - New skill: fetch and act on PR review comments. Auto-detects repo/PR from git context, filters by reviewer (defaults to Copilot), fetches latest review only (or all with `--all` for final pass)

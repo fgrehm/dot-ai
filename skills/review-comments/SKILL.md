@@ -7,10 +7,19 @@ description: Fetch and act on PR review comments. Auto-detects current PR from g
 
 ## Quick Start
 
-After pushing changes and triggering a review, return and run the script:
+After pushing changes and triggering a review, return and run the script. The script is bundled with this skill - find it by checking candidate install locations:
 
 ```bash
-scripts/fetch-comments.sh
+SKILL_SCRIPT=$(ls \
+  ~/.claude/skills/review-comments/scripts/fetch-comments.sh \
+  ~/.pi/agent/skills/review-comments/scripts/fetch-comments.sh \
+  2>/dev/null | head -1)
+```
+
+Then run it:
+
+```bash
+bash "$SKILL_SCRIPT"
 ```
 
 The script will:
@@ -22,16 +31,18 @@ If no `--reviewer` flag is given, default to Copilot reviews. Ask the user to co
 
 ## Usage Patterns
 
+Set `SKILL_SCRIPT` as above, then:
+
 ### Latest review (recommended)
 
 Fetch only the most recent review on your current PR:
 
 ```bash
 # Copilot (default when invoked without --reviewer)
-scripts/fetch-comments.sh --reviewer copilot
+bash "$SKILL_SCRIPT" --reviewer copilot
 
 # Specific reviewer
-scripts/fetch-comments.sh --reviewer octocat
+bash "$SKILL_SCRIPT" --reviewer octocat
 ```
 
 ### All reviews (final pass)
@@ -39,7 +50,7 @@ scripts/fetch-comments.sh --reviewer octocat
 Before merging, check all accumulated feedback across all reviews to ensure nothing was missed:
 
 ```bash
-scripts/fetch-comments.sh --all --reviewer copilot
+bash "$SKILL_SCRIPT" --all --reviewer copilot
 ```
 
 ### No filter
@@ -47,7 +58,7 @@ scripts/fetch-comments.sh --all --reviewer copilot
 Fetch reviews from all reviewers:
 
 ```bash
-scripts/fetch-comments.sh --all
+bash "$SKILL_SCRIPT" --all
 ```
 
 ### Manual repo/PR specification
@@ -55,14 +66,14 @@ scripts/fetch-comments.sh --all
 If auto-detection doesn't work (different repo, no active branch):
 
 ```bash
-scripts/fetch-comments.sh owner/repo 8
+bash "$SKILL_SCRIPT" owner/repo 8
 ```
 
 ## How I'll Use This
 
 When you ask me to address review feedback:
 
-1. **I run the script** (with `--reviewer copilot` unless told otherwise) to fetch the latest comments
+1. **I run the script** - resolve `$SKILL_SCRIPT` as shown in Quick Start, then run it with `--reviewer copilot` (unless told otherwise) to fetch the latest comments
 2. **I analyze and summarize** the feedback, categorizing by type
 3. **I create an action plan** showing what's already fixed, what needs fixing, and severity
 4. **We implement fixes** together, addressing real issues efficiently

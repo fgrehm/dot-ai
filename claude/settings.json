@@ -26,9 +26,7 @@
       "Read(.env)",
       "Read(.env.*)",
       "Read(~/.ssh/*)",
-      "Read(~/.aws/*)",
-      "Write(~/.claude/projects/*/memory/*)",
-      "Edit(~/.claude/projects/*/memory/*)"
+      "Read(~/.aws/*)"
     ],
     "ask": [
       "Bash(git push --force *)",
@@ -42,5 +40,6 @@
     "command": "bunx -y ccstatusline@latest",
     "padding": 0
   },
-  "effortLevel": "high"
+  "effortLevel": "high",
+  "autoMemoryEnabled": false
 }

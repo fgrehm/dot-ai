@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-17
+
+- `skills/tracer-bullet/` - New skill: plan and execute risky technical changes by identifying the riskiest assumption, designing a minimal end-to-end tracer bullet test, then growing the implementation in phased red-green-refactor cycles. Combines RAT (what to validate), tracer bullet (thin vertical slice), and red-green-refactor (execution cadence). Includes research references backing the approach.
+
 ## 2026-03-15
 
 - `skills/review-comments/SKILL.md` - Fix script path resolution: use `$SKILL_SCRIPT` discovery pattern that checks both `~/.claude/skills/` and `~/.pi/agent/skills/` so the bundled script is found regardless of which tool runs the skill (was using a bare relative path that resolved against the project CWD and always failed)

@@ -87,7 +87,7 @@ and summarize what was cleaned up.
 - **Never write all tests before all code.** Writing tests in bulk ("horizontal slicing")
   produces tests that verify imagined behavior and data shapes rather than real behavior.
   One test, one implementation, repeat -- each test responds to what you learned from the
-  previous cycle. (Inspired by [mattpocock/skills tdd](https://github.com/mattpocock/skills/tree/fb3629d3a2ba638a65ef336061204995be7f5d5e/tdd))
+  previous cycle.
 
 ## Related skills
 

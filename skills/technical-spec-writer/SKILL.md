@@ -263,6 +263,4 @@ After the spec is finalized, use `red-green-refactor` for implementation.
 
 ---
 
-Inspired by [mattpocock/skills](https://github.com/mattpocock/skills/tree/fb3629d3a2ba638a65ef336061204995be7f5d5e): relentless interview approach from `write-a-prd`, deep module design lens, durable decisions section, HITL/AFK task classification, and vertical slice framing from `prd-to-plan`.
-
 *Written in collaboration with Claude (Opus 4.6).*

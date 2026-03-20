@@ -368,4 +368,4 @@ Before finalizing, verify:
 - [ ] Concrete examples included
 - [ ] All reference files linked directly from SKILL.md, one level deep
 
-(Inspired by [mattpocock/skills write-a-skill](https://github.com/mattpocock/skills/tree/fb3629d3a2ba638a65ef336061204995be7f5d5e/write-a-skill))
+

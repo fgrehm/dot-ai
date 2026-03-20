@@ -34,7 +34,12 @@ Goal: working code with passing tests.
 2. **Implement incrementally.** Work in small, compilable steps. Run build after each
    logical chunk to catch errors early rather than accumulating a big-bang diff.
 3. **Write tests alongside code.** For new public functions/types, add tests in the
-   same pass. Match the project's existing test style and naming.
+   same pass. Match the project's existing test style and naming. Start with one
+   tracer-bullet test that proves the end-to-end path works before covering edge cases.
+   Tests should verify behavior through public interfaces, not implementation details --
+   a test that breaks on internal renaming without a behavior change is testing the wrong
+   thing. Per-cycle sanity check: test describes observable behavior / uses public
+   interface only / would survive an internal refactor / code is minimal for this test.
 4. **Verify green state.** Run build + test + lint. Fix any failures. Do not proceed
    until all three pass cleanly.
 
@@ -79,6 +84,10 @@ and summarize what was cleaned up.
   items to address. Some "improvements" aren't worth the churn.
 - **Keep refactoring behavior-preserving.** If a refactoring item changes behavior (e.g.,
   fixing a bug found during analysis), call it out explicitly and get confirmation.
+- **Never write all tests before all code.** Writing tests in bulk ("horizontal slicing")
+  produces tests that verify imagined behavior and data shapes rather than real behavior.
+  One test, one implementation, repeat -- each test responds to what you learned from the
+  previous cycle. (Inspired by [mattpocock/skills tdd](https://github.com/mattpocock/skills/tree/fb3629d3a2ba638a65ef336061204995be7f5d5e/tdd))
 
 ## Related skills
 

@@ -122,7 +122,7 @@ Skills use a three-level loading system to manage context efficiently:
 
 #### Progressive Disclosure Patterns
 
-Keep SKILL.md body to the essentials and under 500 lines to minimize context bloat. Split content into separate files when approaching this limit. When splitting out content into other files, it is very important to reference them from SKILL.md and describe clearly when to read them, to ensure the reader of the skill knows they exist and when to use them.
+Keep SKILL.md body to the essentials. Target under 100 lines; split into reference files well before hitting 500 lines. When splitting out content, reference each file explicitly from SKILL.md and describe when to read it.
 
 **Key principle:** When a skill supports multiple variations, frameworks, or options, keep only the core workflow and selection guidance in SKILL.md. Move variant-specific details (patterns, examples, configuration) into separate reference files.
 
@@ -355,3 +355,17 @@ After testing the skill, users may request improvements. Often this happens righ
 2. Notice struggles or inefficiencies
 3. Identify how SKILL.md or bundled resources should be updated
 4. Implement changes and test again
+
+## Review Checklist
+
+Before finalizing, verify:
+
+- [ ] Description includes "Use when..." triggers and all meaningful trigger phrases
+- [ ] Description makes clear what the skill does AND when to use it (it is the only text seen when deciding to load the skill)
+- [ ] SKILL.md targets under 100 lines; reference files handle the rest
+- [ ] No time-sensitive information (version numbers, current dates, temporary APIs)
+- [ ] Consistent terminology throughout
+- [ ] Concrete examples included
+- [ ] All reference files linked directly from SKILL.md, one level deep
+
+(Inspired by [mattpocock/skills write-a-skill](https://github.com/mattpocock/skills/tree/fb3629d3a2ba638a65ef336061204995be7f5d5e/write-a-skill))

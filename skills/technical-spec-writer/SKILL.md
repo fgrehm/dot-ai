@@ -17,9 +17,9 @@ This skill guides the creation of technical specifications for software features
 
 Technical specs follow a consistent format. The workflow is:
 
-1. **Clarify requirements** - Ask clarifying questions to understand scope, trade-offs, and user preferences
+1. **Clarify requirements** - Interview the user about every aspect of the design. Walk down each branch of the decision tree, resolving dependencies between decisions one by one. Provide your recommended answer for each question rather than listing options. If a question can be answered by exploring the codebase, explore first.
 2. **Explore codebase** - Understand existing code and patterns relevant to the spec
-3. **Design the solution** - Plan the approach, architecture, and task breakdown
+3. **Design the solution** - Plan the approach, architecture, and task breakdown. Look for deep module opportunities: small interfaces hiding large implementations that can be tested at the boundary. Sketch major modules and confirm with the user which to test in isolation.
 4. **Write the spec** - Document everything following the template below
 5. **Scrutinize** - Review for completeness, consistency, and correctness
 6. **User review** - Present the spec and ask the user for feedback. If the user approves without comments, push back once: "Are you sure? Specs are cheaper to fix than code. Anything you'd change about the scope, trade-offs, or task breakdown?" Accept their answer either way.
@@ -42,6 +42,20 @@ Technical specs follow a consistent format. The workflow is:
 <1-3 sentences explaining what this spec accomplishes>
 
 <Optional: numbered list of workstreams/sections if large>
+```
+
+**Durable Decisions Section** (include for multi-phase or architectural work):
+```markdown
+## Durable Decisions
+
+Decisions unlikely to change throughout implementation. List them upfront so each phase
+can reference them without relitigating them.
+
+- **Routes / URL patterns**: ...
+- **Schema shape**: ...
+- **Key models / types**: ...
+- **Auth / authorization approach**: ...
+- (add/remove sections as appropriate)
 ```
 
 **TDD Approach Section** (if applicable):
@@ -72,6 +86,8 @@ Every section follows test-first development. Task lists are ordered: **write te
 **Implementation Order Section:**
 ```markdown
 ## Implementation Order
+
+Prefer thin vertical slices that cut through all layers (schema, API, tests) rather than horizontal slices of one layer. A completed slice should be demoable or verifiable on its own.
 
 Recommended sequencing (some tasks can be parallelized; dependencies noted):
 
@@ -111,6 +127,7 @@ Every spec should lead with tests, then implementation. Tests define the contrac
 
 - Use checkboxes (`- [ ]`) for all tasks
 - Start task text with **Test:** or **Implement:** (or a clear verb)
+- Optionally mark tasks **[HITL]** (requires human decision or review) or **[AFK]** (can run to completion autonomously). Flag HITL tasks early so they don't block later phases.
 - Group related tasks (all tests together, then all implementation)
 - Include acceptance criteria in task descriptions
 - For complex tasks, add a comment or reference to the design section
@@ -245,5 +262,7 @@ Implement:
 After the spec is finalized, use `red-green-refactor` for implementation.
 
 ---
+
+Inspired by [mattpocock/skills](https://github.com/mattpocock/skills/tree/fb3629d3a2ba638a65ef336061204995be7f5d5e): relentless interview approach from `write-a-prd`, deep module design lens, durable decisions section, HITL/AFK task classification, and vertical slice framing from `prd-to-plan`.
 
 *Written in collaboration with Claude (Opus 4.6).*

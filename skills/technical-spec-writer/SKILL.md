@@ -126,7 +126,6 @@ Every spec should lead with tests, then implementation. Tests define the contrac
 
 - Use checkboxes (`- [ ]`) for all tasks
 - Start task text with **Test:** or **Implement:** (or a clear verb)
-- Optionally mark tasks **[HITL]** (requires human decision or review) or **[AFK]** (can run to completion autonomously). Flag HITL tasks early so they don't block later phases.
 - Group related tasks (all tests together, then all implementation)
 - Include acceptance criteria in task descriptions
 - For complex tasks, add a comment or reference to the design section

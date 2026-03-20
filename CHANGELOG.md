@@ -9,7 +9,7 @@ Format: date, file(s) changed, what and why. Newest first.
 - `skills/ubiquitous-language/` - Vendor verbatim from mattpocock/skills: DDD-style glossary extractor with canonical terms, aliase flagging, example dialogue, and incremental re-run support
 - `skills/design-an-interface/` - Vendor verbatim from mattpocock/skills: parallel sub-agent interface design based on "Design It Twice" (A Philosophy of Software Design)
 - `skills/red-green-refactor/SKILL.md` - Incorporate from mattpocock/skills tdd: tracer-bullet-first testing, behavior-vs-implementation test philosophy, per-cycle sanity check, anti-horizontal-slices guardrail
-- `skills/technical-spec-writer/SKILL.md` - Incorporate from mattpocock/skills write-a-prd + prd-to-plan: relentless interview in step 1, deep module design lens in step 3, Durable Decisions spec section, HITL/AFK task classification, vertical slice framing in implementation order
+- `skills/technical-spec-writer/SKILL.md` - Incorporate from mattpocock/skills write-a-prd + prd-to-plan: relentless interview in step 1, deep module design lens in step 3, Durable Decisions spec section, vertical slice framing in implementation order
 - `skills/skill-creator/SKILL.md` - Incorporate from mattpocock/skills write-a-skill: tighten SKILL.md line target to 100 lines, add review checklist
 
 ## 2026-03-17

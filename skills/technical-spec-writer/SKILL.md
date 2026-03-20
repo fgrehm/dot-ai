@@ -109,7 +109,6 @@ Each commit should be a logical, reviewable unit (typically one section's tests 
 ```markdown
 ---
 
-*Written in collaboration with Claude (Opus 4.6).*
 ```
 
 ## Key Principles
@@ -263,4 +262,3 @@ After the spec is finalized, use `red-green-refactor` for implementation.
 
 ---
 
-*Written in collaboration with Claude (Opus 4.6).*

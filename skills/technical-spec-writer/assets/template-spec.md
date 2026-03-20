@@ -78,5 +78,3 @@ Recommended sequencing (some tasks can be parallelized; dependencies noted):
 **Parallelizable:** After step X, steps Y-Z can start in parallel. Step Y must finish before step Z can finish.
 
 ---
-
-*Written in collaboration with Claude (Opus 4.6).*

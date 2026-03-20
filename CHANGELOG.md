@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-20
+
+- `claude/settings.json` - Deny `gh issue comment`, `gh pr comment`, and `gh pr review` to prevent Claude from posting GitHub comments on the user's behalf
+
 ## 2026-03-17
 
 - `skills/tracer-bullet/` - New skill: plan and execute risky technical changes by identifying the riskiest assumption, designing a minimal end-to-end tracer bullet test, then growing the implementation in phased red-green-refactor cycles. Combines RAT (what to validate), tracer bullet (thin vertical slice), and red-green-refactor (execution cadence). Includes research references backing the approach.

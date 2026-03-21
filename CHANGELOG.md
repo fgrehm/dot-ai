@@ -6,6 +6,7 @@ Format: date, file(s) changed, what and why. Newest first.
 
 - Moving on to `dotmem` for memory management
 - Vendored `documentation-writer` skill
+- `skills/grill-me/` - Broadened scope to cover writing (not just code/design). Added `references/techniques.md` with four questioning techniques: pre-mortem, five whys, second-order effects, steel-man. Skill draws from them naturally without announcing which one it's using.
 
 ## 2026-03-20
 

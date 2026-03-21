@@ -40,6 +40,14 @@ When modifying a vendored skill, document the changes in its `README.md` under a
 - Include a URL when referencing any tool, library, article, or documentation
 - Do not hard-wrap lines in SKILL.md files (including YAML frontmatter). These are read by models, not displayed in fixed-width terminals
 
+### Skill changes
+
+When a skill is added, modified, or evolved:
+
+- Update its `README.md` (vendored skills: add or update `## Local changes`; original skills: update the description)
+- Add a CHANGELOG.md entry describing what changed and why
+- If the skill's scope expanded (e.g., new use cases, new references), make that visible in both places
+
 ### Inline annotations
 
 These annotations address tasks to AI agents working in the codebase. Agents should surface them and ask how to proceed before acting:

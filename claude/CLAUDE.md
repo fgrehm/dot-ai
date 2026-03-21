@@ -47,9 +47,3 @@ Fixes #123
 ```
 
 Use scopes when they clarify the component. Skip them for broad changes.
-
-## Memory and notes
-
-Persist session learnings to `.ai/MEMORY.md` in the project root (gitignored, create `.ai/` if it doesn't exist). Read it at session start if it exists. Update existing entries rather than appending duplicates.
-
-@~/projects/dot-ai-private/claude/CLAUDE.md

@@ -2,6 +2,11 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-21
+
+- Moving on to `dotmem` for memory management
+- Vendored `documentation-writer` skill
+
 ## 2026-03-20
 
 - `claude/settings.json` - Deny `gh issue comment`, `gh pr comment`, and `gh pr review` to prevent Claude from posting GitHub comments on the user's behalf

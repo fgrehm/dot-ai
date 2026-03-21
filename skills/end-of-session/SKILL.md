@@ -21,7 +21,7 @@ Using the collector output:
 
 ## 3. Persistent memory
 
-Review the session for learnings worth preserving across sessions. Write learnings to `MEMORY.local.md` at the project root (gitignored). Only update heavyweight files like `CLAUDE.md` or `AGENTS.md` for major learnings or architectural decisions. When in doubt, ask the user before touching them.
+Review the session for learnings worth preserving across sessions. Write learnings to your memory files. Only update heavyweight files like `CLAUDE.md` or `AGENTS.md` for major learnings or architectural decisions. When in doubt, ask the user before touching them.
 
 Worth saving (to memory files):
 - Stable patterns confirmed during the session

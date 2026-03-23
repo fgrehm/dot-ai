@@ -5,6 +5,10 @@
 - Clarify the goal before starting. Ask what "done" looks like when a request is vague or underspecified.
 - Stay within the requested scope. When the task is complete, say so and suggest wrapping up.
 
+## GitHub interactions
+
+**NEVER comment on GitHub on behalf of the user.** Do not post issue comments, PR reviews, replies, or any GitHub interactions. Opening draft pull requests is OK. For everything else, always ask first. No exceptions.
+
 ## Inline annotations
 
 When you encounter these annotations in code or documents, surface them and ask how to proceed before acting:
@@ -26,6 +30,7 @@ Include a URL when referencing any tool, library, article, or documentation. Whe
 - Use ASCII quotation marks (`"` and `'`) in code and comments, not Unicode typographic quotes. Some language formatters restore Unicode from the AST, causing staged changes to revert at commit time.
 - Skip marketing fluff: "comprehensive", "robust", "seamless", "cutting-edge".
 - Be direct and concise.
+- These rules apply everywhere: prose, documentation, commit messages, code comments.
 
 ## Commit format
 

@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-24
+
+- `claude/CLAUDE.md`, `pi/AGENTS.md` - Added note about confirmation about removing untracked files.
+
 ## 2026-03-23
 
 - `claude/CLAUDE.md` - Added explicit GitHub interaction restriction: never comment on GitHub on user's behalf. Draft PRs are OK; all other interactions require explicit user request. No exceptions, somehow that got lost

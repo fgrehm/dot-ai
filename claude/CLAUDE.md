@@ -5,6 +5,10 @@
 - Clarify the goal before starting. Ask what "done" looks like when a request is vague or underspecified.
 - Stay within the requested scope. When the task is complete, say so and suggest wrapping up.
 
+## Untracked files
+
+**NEVER delete untracked files.** They may contain work-in-progress notes, scratch pads, or local context that is not recoverable from git. Always ask before removing any untracked file.
+
 ## GitHub interactions
 
 **NEVER comment on GitHub on behalf of the user.** Do not post issue comments, PR reviews, replies, or any GitHub interactions. Opening draft pull requests is OK. For everything else, always ask first. No exceptions.

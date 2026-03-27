@@ -1,87 +1,55 @@
 ---
 name: review-comments
-description: Fetch and act on PR review comments. Auto-detects current PR from git context. Defaults to Copilot reviews (asks before fetching if no --reviewer specified). Fetches latest review by default (use --all for final pass). Use when returning to a PR after a review, or before merging for a final check of all accumulated feedback.
+description: Fetch PR review comments using the gh-pr-review extension. Auto-detects current PR. Defaults to latest Copilot review. Read-only (no write operations).
 ---
 
 # Review Comments
 
-## Quick Start
+Read-only access to inline PR review threads via the [gh-pr-review](https://github.com/agynio/gh-pr-review) extension. Single GraphQL call, pre-joined thread context, structured JSON output.
 
-After pushing changes and triggering a review, return and run the script. The script is bundled with this skill - find it by checking candidate install locations:
+## Prerequisites
 
-```bash
-SKILL_SCRIPT=$(ls \
-  ~/.claude/skills/review-comments/scripts/fetch-comments.sh \
-  ~/.pi/agent/skills/review-comments/scripts/fetch-comments.sh \
-  2>/dev/null | head -1)
+```sh
+gh extension install agynio/gh-pr-review
 ```
 
-Then run it:
+## Default: latest Copilot review
 
-```bash
-bash "$SKILL_SCRIPT"
+```sh
+REPO=$(gh repo view --json nameWithOwner -q .nameWithOwner)
+PR=$(gh pr view --json number -q .number)
+gh pr-review review view \
+  --reviewer copilot-pull-request-reviewer \
+  -R "$REPO" --pr "$PR" \
+  | jq '{reviews: [.reviews[-1]]}'
 ```
 
-The script will:
-1. Auto-detect your repo and PR from git context via `gh`
-2. Fetch comments from the **latest review only** (avoids outdated feedback)
-3. Output formatted comments ready for action
+The `jq` slice keeps only the latest Copilot review. Copilot may post multiple reviews as you push; without it you'd see all accumulated feedback at once.
 
-If no `--reviewer` flag is given, default to Copilot reviews. Ask the user to confirm before fetching if you're unsure whether they want Copilot or a different reviewer.
+## Filters
 
-## Usage Patterns
+| Flag | Purpose |
+|---|---|
+| `--reviewer <login>` | Filter by reviewer login (e.g. `copilot-pull-request-reviewer`, `octocat`) |
+| `--unresolved` | Only show unresolved threads |
+| `--not_outdated` | Exclude threads on outdated diff hunks |
+| `--tail <n>` | Keep only last n replies per thread |
+| `--states <list>` | `APPROVED`, `CHANGES_REQUESTED`, `COMMENTED`, `DISMISSED` |
 
-Set `SKILL_SCRIPT` as above, then:
+## All reviews (final pass before merging)
 
-### Latest review (recommended)
-
-Fetch only the most recent review on your current PR:
-
-```bash
-# Copilot (default when invoked without --reviewer)
-bash "$SKILL_SCRIPT" --reviewer copilot
-
-# Specific reviewer
-bash "$SKILL_SCRIPT" --reviewer octocat
+```sh
+gh pr-review review view \
+  --reviewer copilot-pull-request-reviewer \
+  -R "$REPO" --pr "$PR"
 ```
 
-### All reviews (final pass)
-
-Before merging, check all accumulated feedback across all reviews to ensure nothing was missed:
-
-```bash
-bash "$SKILL_SCRIPT" --all --reviewer copilot
-```
-
-### No filter
-
-Fetch reviews from all reviewers:
-
-```bash
-bash "$SKILL_SCRIPT" --all
-```
-
-### Manual repo/PR specification
-
-If auto-detection doesn't work (different repo, no active branch):
-
-```bash
-bash "$SKILL_SCRIPT" owner/repo 8
-```
+Drop the `jq` filter to see all reviews, not just the latest.
 
 ## How I'll Use This
 
-When you ask me to address review feedback:
-
-1. **I run the script** - resolve `$SKILL_SCRIPT` as shown in Quick Start, then run it with `--reviewer copilot` (unless told otherwise) to fetch the latest comments
-2. **I analyze and summarize** the feedback, categorizing by type
-3. **I create an action plan** showing what's already fixed, what needs fixing, and severity
-4. **We implement fixes** together, addressing real issues efficiently
-
-## Technical Details
-
-The script uses `gh` CLI to:
-- Fetch reviews from `/repos/:owner/:repo/pulls/:pr/reviews` (paginated)
-- Fetch comments per review from `/reviews/:id/comments` (paginated)
-- Optionally filter reviews by author login (`--reviewer`, case-insensitive substring match)
-- Format output with file:line + created_at + full comment body
+1. Auto-detect `$REPO` and `$PR` from git context
+2. Run the default command (`--reviewer copilot-pull-request-reviewer` unless told otherwise)
+3. Summarize feedback by category
+4. Create an action plan: what needs fixing vs. what's already addressed
+5. Implement fixes

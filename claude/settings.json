@@ -11,7 +11,7 @@
     "allow": [
       "WebFetch(domain:github.com)",
       "Bash(bash */.claude/skills/end-of-session/collect.sh)",
-      "Bash(bash */.claude/skills/review-comments/scripts/fetch-comments.sh)"
+      "Bash(gh pr-review review view*)"
     ],
     "deny": [
       "Bash(rm -rf *)",

@@ -2,6 +2,11 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-27
+
+- `skills/review-comments/` - Replaced bundled `fetch-comments.sh` REST script with [gh-pr-review](https://github.com/agynio/gh-pr-review) extension. Single GraphQL call replaces the two-step REST chain (list reviews + per-review comments), gains pre-joined thread context and structured JSON. Scope narrowed to read-only. "Latest review" behavior preserved via `jq '{reviews: [.reviews[-1]]}'`. Upstream SKILL.md from [agynio/gh-pr-review@9c422aa](https://github.com/agynio/gh-pr-review/blob/9c422aaa07cfc296cdc8e349ec490d9236b7bfdf/SKILL.md) was the reference.
+- `claude/settings.json` - Replaced `fetch-comments.sh` allow with `gh pr-review review view*`
+
 ## 2026-03-24
 
 - `claude/CLAUDE.md`, `pi/AGENTS.md` - Added note about confirmation about removing untracked files.

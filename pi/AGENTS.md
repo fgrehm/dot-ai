@@ -1,17 +1,40 @@
 # Personal pi Settings
 
-## Task scope
+## Collaboration
 
 - Clarify the goal before starting. Ask what "done" looks like when a request is vague or underspecified.
+- For non-trivial changes, show a plan and ask for review before moving forward. Single-file fixes or straightforward edits can proceed directly.
 - Stay within the requested scope. When the task is complete, say so and suggest wrapping up.
 
-## Untracked files
+## Reading before changing
 
-**NEVER delete untracked files.** They may contain work-in-progress notes, scratch pads, or local context that is not recoverable from git. Always ask before removing any untracked file.
+Read and understand existing code before modifying it. When asked about or directed to change a file, read it first. Do not propose changes based on assumptions about what the code looks like.
+
+## Git
+
+Stage files explicitly by name. Never use `git add .`, `git add -A`, or `git add -u`. When unsure which files to stage, run `git status --short` first.
+
+**Never delete untracked files.** They may contain work-in-progress notes, scratch pads, or local context that is not recoverable from git. Always ask before removing any untracked file.
 
 ## GitHub interactions
 
-**NEVER comment on GitHub on behalf of the user.** Do not post issue comments, PR reviews, replies, or any GitHub interactions. Opening draft pull requests is OK. For everything else, always ask first. No exceptions.
+**Never comment on GitHub on behalf of the user.** Do not post issue comments, PR reviews, replies, or any GitHub interactions. Opening draft pull requests is OK. For everything else, always ask first. No exceptions.
+
+Do not reference PRs from other repositories in PR descriptions unless explicitly asked. It creates unwanted cross-repo notifications. Keep PR descriptions self-contained.
+
+## Multi-repo workflows
+
+When running shell commands targeting a specific project repo, always prefix with `cd /path/to/repo &&`. Shell cwd does not persist between tool calls. Verify each command independently, never rely on a previous cd.
+
+## Research and uncertainty
+
+Search the web for correct flags, patterns, and best practices when working with unfamiliar tools. Do not guess at flags or invent API signatures. Be direct about what you do not know.
+
+When something fails, diagnose the cause before retrying or switching approaches. Read the error, check assumptions, try a focused fix.
+
+## Don't duplicate what the toolchain provides
+
+Before adding instructions, docs, helpers, or abstractions, ask: "does the existing system already provide this information?" If `go.mod` declares the Go version, don't repeat it in CLAUDE.md. If a tool doesn't read its own config, extra instructions won't help either. Prefer local project directories (gitignored) over system paths that require sudo.
 
 ## Inline annotations
 
@@ -51,8 +74,6 @@ fix: resolve memory leak in background tasks
 
 Moved timer cleanup into the finally block to prevent accumulation
 during long-running sessions.
-
-Fixes #123
 ```
 
 Use scopes when they clarify the component. Skip them for broad changes.

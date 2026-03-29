@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-03-29
+
+- `claude/CLAUDE.md`, `pi/AGENTS.md` - Restructured agent instructions: renamed sections for clarity (Task scope -> Collaboration, merged git sections), scoped plan requirement to non-trivial changes, added "Reading before changing" and "Diagnose before retrying" guidance, added "Don't duplicate what the toolchain provides", tightened wording throughout.
+
 ## 2026-03-27
 
 - `skills/review-comments/` - Replaced bundled `fetch-comments.sh` REST script with [gh-pr-review](https://github.com/agynio/gh-pr-review) extension. Single GraphQL call replaces the two-step REST chain (list reviews + per-review comments), gains pre-joined thread context and structured JSON. Scope narrowed to read-only. "Latest review" behavior preserved via `jq '{reviews: [.reviews[-1]]}'`. Upstream SKILL.md from [agynio/gh-pr-review@9c422aa](https://github.com/agynio/gh-pr-review/blob/9c422aaa07cfc296cdc8e349ec490d9236b7bfdf/SKILL.md) was the reference.

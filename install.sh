@@ -151,6 +151,7 @@ cleanup_legacy "$HOME/.claude/skills"
 echo "=== Claude Code ==="
 link "$SCRIPT_DIR/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 merge_settings "$SCRIPT_DIR/claude/settings.json" "$HOME/.claude/settings.json"
+link "$SCRIPT_DIR/claude/statusline.sh" "$HOME/.claude/statusline.sh"
 link "$SCRIPT_DIR/claude/output-styles" "$HOME/.claude/output-styles"
 link_skills "$HOME/.claude/skills"
 

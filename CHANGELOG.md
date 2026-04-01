@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-04-01
+
+- New claude statusline as a bash script
+
 ## 2026-03-29
 
 - `claude/CLAUDE.md`, `pi/AGENTS.md` - Restructured agent instructions: renamed sections for clarity (Task scope -> Collaboration, merged git sections), scoped plan requirement to non-trivial changes, added "Reading before changing" and "Diagnose before retrying" guidance, added "Don't duplicate what the toolchain provides", tightened wording throughout.

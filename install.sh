@@ -148,6 +148,14 @@ cleanup_legacy "$HOME/.claude/settings.json"
 cleanup_legacy "$HOME/.claude/output-styles"
 cleanup_legacy "$HOME/.claude/skills"
 
+# Clean up renamed skills
+for old_skill_dir in "$HOME/.claude/skills" "$HOME/.pi/agent/skills"; do
+  if [ -L "$old_skill_dir/end-of-session" ]; then
+    echo "Removing old skill symlink $old_skill_dir/end-of-session (renamed to flush)"
+    rm "$old_skill_dir/end-of-session"
+  fi
+done
+
 echo "=== Claude Code ==="
 link "$SCRIPT_DIR/claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"
 merge_settings "$SCRIPT_DIR/claude/settings.json" "$HOME/.claude/settings.json"

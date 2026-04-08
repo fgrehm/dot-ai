@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-04-08
+
+- Set claude chat retention to 90d, remove effort from base setting
+
 ## 2026-04-01
 
 - New claude statusline as a bash script

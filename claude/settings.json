@@ -42,5 +42,5 @@
     "type": "command",
     "command": "bash ~/.claude/statusline.sh"
   },
-  "effortLevel": "medium"
+  "cleanupPeriodDays": 90
 }

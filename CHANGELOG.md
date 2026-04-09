@@ -2,6 +2,10 @@
 
 Format: date, file(s) changed, what and why. Newest first.
 
+## 2026-04-09
+
+- `skills/repo-health-check/` - New skill. Runs OpenSSF Scorecard against a GitHub repo, classifies the project into a tier (hobby/active/production), and presents prioritized findings with concrete fixes proportionate to the project's actual risk profile.
+
 ## 2026-04-08
 
 - `skills/flush/` - Renamed from `end-of-session`, generalized to work mid-session. Dropped `collect.sh` (agent uses built-in tools directly), dropped stale docs section (folded into dangling work). Trigger list expanded to include "flush", "checkpoint", "save progress" alongside original end-of-session phrases.

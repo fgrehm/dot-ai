@@ -4,6 +4,7 @@ Format: date, file(s) changed, what and why. Newest first.
 
 ## 2026-04-09
 
+- `skills/revdiff/` - Vendor verbatim from umputun/revdiff: Review diffs, files, and documents with inline annotations in a TUI overlay
 - `skills/repo-health-check/` - New skill. Runs OpenSSF Scorecard against a GitHub repo, classifies the project into a tier (hobby/active/production), and presents prioritized findings with concrete fixes proportionate to the project's actual risk profile.
 
 ## 2026-04-08
